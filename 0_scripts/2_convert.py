@@ -1,4 +1,5 @@
 #!/bin/env -S python3 -i
+import itertools
 import json
 import os
 import pandas
@@ -83,6 +84,7 @@ class config:
 		if False:
 			# es mi implementación original
 			# pero el excel está MUUUY mal hecho
+			# y se necesita hacer algunos apaños
 			for separator in separators:
 				if separator in val:
 					return val.split( separator )
@@ -93,20 +95,23 @@ class config:
 	#   evita nombres diferentes para la misma entrada
 	#↘ (en nuestro caso, "5pRNA"="5'RNA"="5p-RNA"=etc…)
 	def control_vocabulary( self, val: str, key2 ):
-		if type( val ) is list:
-			return list( self.control_vocabulary( v, key2 ) for v in val )
+		if type( val ) == list:
+			return list( itertools.chain(
+				*[ self.control_vocabulary( v, key2 ) for v in val ]
+			) ) # yapf: disable
 		key1 = "column_configs"
 		key3 = "allowed_values"
 		try:
 			allowed = self.params[ key1 ][ key2 ][ key3 ]
-			return allowed[ val ]
+			if type( val ) == list: allowed[ val ]
+			else: return allowed[ val ]
 		except KeyError:
 			new = input( f'Enter allowed value for `{val}` in column `{key2}`: ' )
 			if new == '': new = val
 			try:
-				self.params[ key1 ][ key2 ][ key3 ][ val ] = new
+				self.params[ key1 ][ key2 ][ key3 ][ val ] = [ new ]
 			except KeyError:
-				self.params[ key1 ][ key2 ][ key3 ] = { val: new }
+				self.params[ key1 ][ key2 ][ key3 ] = { val: [ new ] }
 			print( ' Updated!' )
 			return new # yapf: disable
 	#↕ registra la función para usarla al procesar columnas
@@ -193,8 +198,10 @@ def main():
 				for col, val in row.items():
 					#↘ modifica los valores si es necesario
 					if mycfg.column_is_custom( col ):
+						# print( val )  #!#!#
 						for func in mycfg.custom_funcs( col ):
 							val = func( mycfg, val, col )
+							# print( val )  #!#!#
 						if val == mycfg.ignore: continue
 					#↘ evita que pandas lo guarde algún valor como `datetime`
 					else:
@@ -214,7 +221,7 @@ def edit_experiments( method: Literal[ 'b', 'i', 'e' ] = 'b', tpath='./2_temp_ed
 	with config( '2_convert_config_mirtarbase.json' ) as mycfg:
 		key1, key2, key3 = "column_configs", "Experiments", "allowed_values"
 		table = mycfg.params[ key1 ][ key2 ][ key3 ].items()
-		table = tuple( '\t'.join( pair ) for pair in table )
+		table = tuple( '\t'.join( ( k, '\t'.join( v ) ) ) for k, v in table )
 		if method in list( 'be' ):
 			with open( tpath, 'w' ) as tfile:
 				tfile.write( '\n'.join( table ) )
@@ -226,7 +233,7 @@ def edit_experiments( method: Literal[ 'b', 'i', 'e' ] = 'b', tpath='./2_temp_ed
 		if method in list( 'bi' ):
 			with open( tpath ) as tfile:
 				for line in tfile.readlines():
-					key, val = line.strip().split( '\t' )
+					key, *val = line.strip().split( '\t' )
 					table.update( { key: val } )
 		mycfg.params[ key1 ][ key2 ][ key3 ] = table
 
@@ -245,12 +252,22 @@ def isthisajoke( text: str, separators: list[ str ] ):
 if __name__ == '__main__':
 	if '--help' in sys.argv:
 		print(
-			'''Command line options:
---no-chdir          	no not change the directory to the one of the script
---edit-experiments  	export and import experiments mapping
---export-experiments	export experiments mapping
---import-experiments	import experiments mapping'''
+			'''\
+Reads .xlsx files from ../1_download and saves them as .json with a defined structure to ../2_convert
+
+Directory options:
+   --no-chdir             no not change the base directory to the one of the script
+   --rdir <directory>     read .xlsx files from <directory>
+   --wdir <directory>     write .json files to <directory>
+
+Config options:
+   --edit-experiments     export and import experiments mapping
+   --export-experiments   export experiments mapping
+   --import-experiments   import experiments mapping
+'''
 		)
+		from os import _exit as q
+		q( 0 )
 	#↘ usa el directorio con el cual se está trabajando
 	elif '--no-chdir' in sys.argv:
 		print( 'Using', os.path.abspath( os.getcwd() ), 'as cwd' )

@@ -9,242 +9,725 @@
 			],
 			"savename": "evidence:experiments",
 			"allowed_values": {
-				"Wstern blot": "Western blot",
-				"Wetsern blot": "Western blot",
-				"Westren blot": "Western blot",
-				"Westren Blot": "Western blot",
-				"westernblotting": "Western blot",
-				"Western blotting": "Western blot",
-				"Western Blotting": "Western blot",
-				"Western blot ": "Western blot",
-				"Western blot": "Western blot",
-				"western blot": "Western blot",
-				"Western Blot": "Western blot",
-				"WEstern blot": "Western blot",
-				"Western blog": "Western blot",
-				"Western blo": "Western blot",
-				"Western": "Western blot",
-				"Weastern blot": "Western blot",
-				"/Western blot": "Western blot",
-				"Southern Blotting": "Southern blot",
-				"Southern blot": "Southern blot",
-				"Northern blotting": "Northern blot",
-				"Northern blot": "Northern blot",
-				"Nortern blot": "Northern blot",
-				"NGS": "Next Generation Sequencing (NGS)",
-				"Next Generation Sequencing (NGS)": "Next Generation Sequencing (NGS)",
-				"Motility assay": "Motility assay",
-				"Microarray": "Microarray",
-				"microarray": "Microarray",
-				"Micorarray": "Microarray",
-				"Mass spectrometry": "Mass spectrometry",
-				"luciferasereporterassay": "Luciferase reporter assay",
-				"luciferase reporter assays": "Luciferase reporter assay",
-				"Luciferase reporter assay": "Luciferase reporter assay",
-				"luciferase reporter assay": "Luciferase reporter assay",
-				"Luciferase reporter assa": "Luciferase reporter assay",
-				"Luciferase assay": "Luciferase reporter assay",
-				"LacZ reporter assay": "LacZ reporter assay",
-				"LacZ assay": "LacZ reporter assay",
-				"intrarenal expression": "intrarenal expression",
-				"In situ hybridization": "In situ hybridization",
-				"in situ hybridization": "In situ hybridization",
-				"Immunoprecipitation": "Immunoprecipitaion (IP)",
-				"Immunoprecipitaion (IP)": "Immunoprecipitaion (IP)",
-				"Immunoprecipitaion": "Immunoprecipitaion (IP)",
-				"immunoprecipitaion": "Immunoprecipitaion (IP)",
-				"Immuno-precipitation": "Immunoprecipitaion (IP)",
-				"Immuohistochemistry": "Immunohistochemistry (IHC)",
-				"Immunohistochemistry analysis": "Immunohistochemistry (IHC)",
-				"Immunohistochemistry (IHC)": "Immunohistochemistry (IHC)",
-				"Immunohistochemistry": "Immunohistochemistry (IHC)",
-				"immunohistochemistry": "Immunohistochemistry (IHC)",
-				"Immunohistochemical analysis": "Immunohistochemistry (IHC)",
-				"Immunohistochemical (IHC) staining": "Immunohistochemistry (IHC)",
-				"Immunofluorescent Assay": "Immunoflourescence",
-				"Immunofluorescence staining": "Immunoflourescence",
-				"Immunofluorescence microscopy": "Immunoflourescence",
-				"immunofluorescence assays": "Immunoflourescence",
-				"Immunofluorescence analysis": "Immunoflourescence",
-				"Immunofluorescence": "Immunoflourescence",
-				"immunofluorescence": "Immunoflourescence",
-				"Immunoflourescence": "Immunoflourescence",
-				"Immunocytochemistry (ICC)": "Immunocytochemistry (ICC)",
-				"Immunocytochemistry": "Immunocytochemistry (ICC)",
-				"immunocytochemistry": "Immunocytochemistry (ICC)",
-				"Immunoblotting": "Immunoblot",
-				"immunoblot analysis": "Immunoblot",
-				"Immunoblot": "Immunoblot",
-				"immunoblot": "Immunoblot",
-				"HITS-CLIP\u807d": "HITS-CLIP",
-				"HITS-CLIP": "HITS-CLIP",
-				"GUS reporter assay": "GUS reporter assay",
-				"Gluc reporter assay": "Gluc reporter assay",
-				"Gluc assay": "Gluc reporter assay",
-				"GFP reporter assay": "GFP reporter assay",
-				"GFP Reporter Assay": "GFP reporter assay",
-				"GFP reporter": "GFP reporter assay",
-				"Genotyping": "Genotyping",
-				"DNA methylation analysis": "DNA methylation analysis",
-				"Degradome sequencing": "Degradome sequencing",
-				"Degradome": "Degradome sequencing",
-				"Colony formation assay": "Colony formation assay",
-				"colony formation": "Colony formation assay",
-				"/Chromatin Immunoprecipitation (ChIP) Assays": "ChIP-seq",
-				"5RACE": "5'RACE",
-				"5\\'RACE": "5'RACE",
-				"5\"RACE": "5'RACE",
-				"5\"\"RACE": "5'RACE",
-				"5'RACE": "5'RACE",
-				"2DGE": "2DGE",
-				"2-D Gel Electrophoresis (2DGE)": "2DGE",
-				"www.targetscan.org/) and one in the la": "** ERROR TO MANUALLY EDIT",
-				"Western blot, luciferase assay": "** ERROR TO MANUALLY EDIT",
-				"TOP\u94ff\u4fdbsh/FOP\u94ff\u4fdbsh reporter assay": "** ERROR TO MANUALLY EDIT",
-				"TOP\u8302\u5362\u9225\u6b5bsh/FOP\u8302\u5362\u9225\u6b5bsh reporter assay": "** ERROR TO MANUALLY EDIT",
-				"To test if miR-141 directly targets the PR transcript, we analyzed four predicted miR-141-binding sites (Figure 4c)": "** ERROR TO MANUALLY EDIT",
-				"TaqMan miRNA assay/RT-PCR": "** ERROR TO MANUALLY EDIT",
-				"QRTPCRWestern blot": "** ERROR TO MANUALLY EDIT",
-				"qRT=PCR": "** ERROR TO MANUALLY EDIT",
-				"qRT-PCR/Luciferase reporter assay": "** ERROR TO MANUALLY EDIT",
-				"qRT-PCR and Western blot": "** ERROR TO MANUALLY EDIT",
-				"nan": "** ERROR TO MANUALLY EDIT",
-				"Microarray/In situ hybridization": "** ERROR TO MANUALLY EDIT",
-				"Luciferase reporter assayMTT": "** ERROR TO MANUALLY EDIT",
-				"Luciferase reporter assay/Western blot": "** ERROR TO MANUALLY EDIT",
-				"Luciferase reporter assay/QRTPCR": "** ERROR TO MANUALLY EDIT",
-				"Luciferase reporter assay/qRT-PCR": "** ERROR TO MANUALLY EDIT",
-				"Luciferase reporter assay/Microarray": "** ERROR TO MANUALLY EDIT",
-				"Luciferase reporter assay and western blot": "** ERROR TO MANUALLY EDIT",
-				"Luciferase assay/RT-PCR": "** ERROR TO MANUALLY EDIT",
-				"Immunoprecipitaion\u928a\ue652uciferase reporter assay": "** ERROR TO MANUALLY EDIT",
-				"ELISALuciferase reporter assay": "** ERROR TO MANUALLY EDIT",
-				"three within the 3\u9225?untranslated region (UTR) as identified through Targetscan (http:": "** ERROR TO MANUALLY EDIT",
-				"three within the 3\u8292\u9227\ue0dd?untranslated region (UTR) as identified through Targetscan (http:": "** ERROR TO MANUALLY EDIT",
-				"rna-seq": "* RNA-seq",
-				"RNA-seq": "* RNA-seq",
-				"RNA-binding protein immunoprecipitation": "* RNA immunoprecipitation assay (RIP)",
-				"RNA immunoprecipitation assay (RIP)": "* RNA immunoprecipitation assay (RIP)",
-				"RNA immunopercipitation": "* RNA immunoprecipitation assay (RIP)",
-				"semi-qRT-PCR": "* Real Time PCR (qPCR)",
-				"RTPCR": "* Real Time PCR (qPCR)",
-				"RT-PCR": "* Real Time PCR (qPCR)",
-				"real-timeRT-PCR": "* Real Time PCR (qPCR)",
-				"real-time RT-PCR": "* Real Time PCR (qPCR)",
-				"Real time RT-PCR": "* Real Time PCR (qPCR)",
-				"real time qRT-PCR": "* Real Time PCR (qPCR)",
-				"Real time qRT-PCR": "* Real Time PCR (qPCR)",
-				"Real time PCR": "* Real Time PCR (qPCR)",
-				"quantitative PCR": "* Real Time PCR (qPCR)",
-				"QRTPCR": "* Real Time PCR (qPCR)",
-				"qRT-PCR": "* Real Time PCR (qPCR)",
-				"qrt-pcr": "* Real Time PCR (qPCR)",
-				"qRT_PCR": "* Real Time PCR (qPCR)",
-				"qPCR": "* Real Time PCR (qPCR)",
-				"q-PCR": "* Real Time PCR (qPCR)",
-				"Quantitative proteomic approach": "* Real Time ...???",
-				"Fluorescence reporter assay": "* Fluorescence reporter assay",
-				"Flow cytometry": "* Flow cytometry",
-				"Flow": "* Flow cytometry",
-				"flow": "* Flow cytometry",
-				"FISH": "* FISH",
-				"FACS": "* FACS",
-				"Communoprecipitaion": "* Coimmunoprecipitation",
-				"Coimmunoprecipitation": "* Coimmunoprecipitation",
-				"Co-immunoprecipitation": "* Coimmunoprecipitation",
-				"CLIP-Seq dataset analysis": "* CLIP-seq",
-				"CLIP-seq": "* CLIP-seq",
-				"Chromatin Immunoprecipitation (ChIP) Assays": "* ChIP-seq",
-				"Chromatin immunoprecipitation": "* ChIP-seq",
-				"Chromatin Immunoprecipitation": "* ChIP-seq",
-				"ChIP-seq": "* ChIP-seq",
-				"chip-seq": "* ChIP-seq",
-				"ChIP-PCR": "* ChIP-seq",
-				"ChIP immunoprecipitation": "* ChIP-seq",
-				"ChIP assay": "* ChIP-seq",
-				"ChIP": "* ChIP-seq",
-				"Chip": "* ChIP-seq",
-				"CHIP": "* ChIP-seq",
-				"Cell proliferation assays": "* Cell proliferation assay",
-				"Cell proliferation assay": "* Cell proliferation assay",
-				"Cell proliferation": "* Cell proliferation assay",
-				"Ago2-IP/IgG-IP": "* AGO2",
-				"AGO2 Immunoprecipitation": "* AGO2",
-				"AGO2 binding RNA immunoprecipitation qRT-PCR": "* AGO2",
-				"3RACE": "* 3'RACE",
-				"3'LIFE": "* 3'RACE",
-				"3'-Seq": "* 3'RACE",
-				"Zymography": "*",
-				"YFP reporter assay": "*",
-				"YFP fluorescent-labelled reporter assay": "*",
-				"YFP expression": "*",
-				"wound healing assays": "*",
-				"Unknown": "*",
-				"TRAP": "*",
-				"transwell insert": "*",
-				"Translational profiling": "*",
-				"TOP/FOP luciferase assay": "*",
-				"TargetScan": "*",
-				"TaqMan miRNA assay": "*",
-				"sphere assay": "*",
-				"Soft agar assay": "*",
-				"silico analysis": "*",
-				"SILAC (Stable Isotope Labeling of Amino acids in Culture)": "*",
-				"Sequencing": "*",
-				"safranin o staining/GAGs contents assay": "*",
-				"RNAi": "*",
-				"RISC-seq": "*",
-				"RISC-IP": "*",
-				"RISC analysis": "*",
-				"Ribonuclease protection assay": "*",
-				"Reverse-phase protein array": "*",
-				"Reporter assay": "*",
-				"pSILAC": "*",
-				"proteomics analysis": "*",
-				"Proteomics": "*",
-				"Protein Immunoblot Analyses": "*",
-				"protein array": "*",
-				"pMIR-REPORT": "*",
-				"phenotypic sensor assay": "*",
-				"PCR array": "*",
-				"PAR-CLIP": "*",
-				"Other": "*",
-				"MTT assay": "*",
-				"MTT": "*",
-				"mtt": "*",
-				"mRNA decay": "*",
-				"mRAP": "*",
-				"miRNA-masking antisense ODN (miR-Mask) assay": "*",
-				"miR PCR array system": "*",
-				"mice xenograft": "*",
-				"LC-MS/MS": "*",
-				"in vivo gain/loss-of-function experiments": "*",
-				"in vitro cullelar assays": "*",
-				"immunostaining": "*",
-				"Immunostaining": "*",
-				"immunosorbent": "*",
-				"IlluminaExpressionArrays": "*",
-				"enzyme-linked immunosorbent assay": "*",
-				"EMSA": "*",
-				"ELISA": "*",
-				"EGFR reporter assay": "*",
-				"EGFP reporter assay": "*",
-				"dual-luciferase reporter assay": "*",
-				"Cleaved amplified polymorphic sequences": "*",
-				"CLASH": "*",
-				"Chromogenic in situ hybridization": "*",
-				"cell cycle assays": "*",
-				"CC tissues and cells (C33A, HeLa, CaSki, SiHa, and ME-180)": "*",
-				"Caspase-Glo\u8117\u5e90 3/7 assay": "*",
-				"Caspase-Glo\u5e90 3/7 assay": "*",
-				"CAM assay": "*",
-				"Branched DNA probe assay": "*",
-				"B-globin reporter assay": "*",
-				"ASO assay": "*",
-				"apoptosis": "*",
-				"anoikis assay": "*",
-				"Annexin V-FITC": "*",
-				"Alizarin red S staining": "*"
+				"2-D Gel Electrophoresis (2DGE)": [
+					"2D gel electrophoresis"
+				],
+				"2DGE": [
+					"2D gel electrophoresis"
+				],
+				"3'LIFE": [
+					"3' LIFE"
+				],
+				"3RACE": [
+					"3' RACE"
+				],
+				"3'-Seq": [
+					"3' Seq"
+				],
+				"5'RACE": [
+					"5' RACE"
+				],
+				"5\"\"RACE": [
+					"5' RACE"
+				],
+				"5\"RACE": [
+					"5' RACE"
+				],
+				"5\\'RACE": [
+					"5' RACE"
+				],
+				"5RACE": [
+					"5' RACE"
+				],
+				"anoikis assay": [
+					"Anoikis assay"
+				],
+				"Annexin V-FITC": [
+					"Apoptosis detection"
+				],
+				"ASO assay": [
+					"ASO assay"
+				],
+				"B-globin reporter assay": [
+					"beta globin reporter assay"
+				],
+				"CAM assay": [
+					"CAM assay"
+				],
+				"Caspase-Glo\u5e90 3/7 assay": [
+					"Caspase Glo (R) assay"
+				],
+				"Caspase-Glo\u8117\u5e90 3/7 assay": [
+					"Caspase Glo (R) assay"
+				],
+				"cell cycle assays": [
+					"Cell proliferation assays"
+				],
+				"Cell proliferation": [
+					"Cell proliferation assays"
+				],
+				"Cell proliferation assay": [
+					"Cell proliferation assays"
+				],
+				"Cell proliferation assays": [
+					"Cell proliferation assays"
+				],
+				"/Chromatin Immunoprecipitation (ChIP) Assays": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"ChIP": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"CHIP": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"Chip": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"ChIP assay": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"ChIP immunoprecipitation": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"ChIP-PCR": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"chip-seq": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"ChIP-seq": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"Chromatin Immunoprecipitation": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"Chromatin immunoprecipitation": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"Chromatin Immunoprecipitation (ChIP) Assays": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
+				"Chromogenic in situ hybridization": [
+					"Chromogenic in situ hybridization (CISH)"
+				],
+				"CLIP-seq": [
+					"CLIP-seq"
+				],
+				"CLIP-Seq dataset analysis": [
+					"CLIP-seq"
+				],
+				"Sequencing": [
+					"CLIP-seq"
+				],
+				"colony formation": [
+					"Colony formation assay"
+				],
+				"Colony formation assay": [
+					"Colony formation assay"
+				],
+				"AGO2 Immunoprecipitation": [
+					"Cross-Linking and Immuno-Precipitation (CLIP)"
+				],
+				"Ago2-IP/IgG-IP": [
+					"Cross-Linking and Immuno-Precipitation (CLIP)"
+				],
+				"AGO2 binding RNA immunoprecipitation qRT-PCR": [
+					"Cross-linking, Ligation, and Sequencing of Hybrids (CLASH)",
+					"Real Time PCR (qPCR)"
+				],
+				"CLASH": [
+					"Cross-linking, Ligation, and Sequencing of Hybrids (CLASH)"
+				],
+				"Degradome": [
+					"Degradome sequencing"
+				],
+				"Degradome sequencing": [
+					"Degradome sequencing"
+				],
+				"DNA methylation analysis": [
+					"DNA methylation analysis"
+				],
+				"ELISALuciferase reporter assay": [
+					"ELISA",
+					"Luciferase reporter assay"
+				],
+				"ELISA": [
+					"ELISA"
+				],
+				"enzyme-linked immunosorbent assay": [
+					"ELISA"
+				],
+				"intrarenal expression": [
+					"Expression analysis"
+				],
+				"FACS": [
+					"FACS"
+				],
+				"FISH": [
+					"FISH"
+				],
+				"flow": [
+					"Flow cytometry"
+				],
+				"Flow": [
+					"Flow cytometry"
+				],
+				"Flow cytometry": [
+					"Flow cytometry"
+				],
+				"EGFP reporter assay": [
+					"FP reporter"
+				],
+				"EGFR reporter assay": [
+					"FP reporter"
+				],
+				"Fluorescence reporter assay": [
+					"FP reporter"
+				],
+				"GFP reporter": [
+					"FP reporter"
+				],
+				"GFP reporter assay": [
+					"FP reporter"
+				],
+				"GFP Reporter Assay": [
+					"FP reporter"
+				],
+				"YFP expression": [
+					"FP reporter"
+				],
+				"YFP fluorescent-labelled reporter assay": [
+					"FP reporter"
+				],
+				"YFP reporter assay": [
+					"FP reporter"
+				],
+				"Genotyping": [
+					"Genotyping"
+				],
+				"Gluc assay": [
+					"Gluc reporter assay"
+				],
+				"Gluc reporter assay": [
+					"Gluc reporter assay"
+				],
+				"GUS reporter assay": [
+					"GUS reporter assay"
+				],
+				"HITS-CLIP": [
+					"HITS-CLIP"
+				],
+				"HITS-CLIP\u807d": [
+					"HITS-CLIP"
+				],
+				"IlluminaExpressionArrays": [
+					"Illumina Expression Arrays"
+				],
+				"Immunoblot": [
+					"Immunoblot"
+				],
+				"immunoblot": [
+					"Immunoblot"
+				],
+				"immunoblot analysis": [
+					"Immunoblot"
+				],
+				"Immunoblotting": [
+					"Immunoblot"
+				],
+				"immunocytochemistry": [
+					"Immunocytochemistry (ICC)"
+				],
+				"Immunocytochemistry": [
+					"Immunocytochemistry (ICC)"
+				],
+				"Immunocytochemistry (ICC)": [
+					"Immunocytochemistry (ICC)"
+				],
+				"Immuohistochemistry": [
+					"Immunocytochemistry (ICC)"
+				],
+				"Immunoflourescence": [
+					"Immunofluorescence"
+				],
+				"Immunofluorescence": [
+					"Immunofluorescence"
+				],
+				"immunofluorescence": [
+					"Immunofluorescence"
+				],
+				"Immunofluorescence analysis": [
+					"Immunofluorescence"
+				],
+				"immunofluorescence assays": [
+					"Immunofluorescence"
+				],
+				"Immunofluorescence microscopy": [
+					"Immunofluorescence"
+				],
+				"Immunofluorescence staining": [
+					"Immunofluorescence"
+				],
+				"Immunofluorescent Assay": [
+					"Immunofluorescence"
+				],
+				"Immunohistochemical (IHC) staining": [
+					"Immunohistochemistry (IHC)"
+				],
+				"Immunohistochemical analysis": [
+					"Immunohistochemistry (IHC)"
+				],
+				"immunohistochemistry": [
+					"Immunohistochemistry (IHC)"
+				],
+				"Immunohistochemistry": [
+					"Immunohistochemistry (IHC)"
+				],
+				"Immunohistochemistry (IHC)": [
+					"Immunohistochemistry (IHC)"
+				],
+				"Immunohistochemistry analysis": [
+					"Immunohistochemistry (IHC)"
+				],
+				"Co-immunoprecipitation": [
+					"Immunoprecipitation (IP)"
+				],
+				"Coimmunoprecipitation": [
+					"Immunoprecipitation (IP)"
+				],
+				"Communoprecipitaion": [
+					"Immunoprecipitation (IP)"
+				],
+				"Immuno-precipitation": [
+					"Immunoprecipitation (IP)"
+				],
+				"immunoprecipitaion": [
+					"Immunoprecipitation (IP)"
+				],
+				"Immunoprecipitaion": [
+					"Immunoprecipitation (IP)"
+				],
+				"Immunoprecipitaion (IP)": [
+					"Immunoprecipitation (IP)"
+				],
+				"Immunoprecipitaion\u928a\ue652uciferase reporter assay": [
+					"Immunoprecipitation (IP)"
+				],
+				"Immunoprecipitation": [
+					"Immunoprecipitation (IP)"
+				],
+				"immunosorbent": [
+					"Immunostaining"
+				],
+				"immunostaining": [
+					"Immunostaining"
+				],
+				"Immunostaining": [
+					"Immunostaining"
+				],
+				"silico analysis": [
+					"In silico analysis"
+				],
+				"CC tissues and cells (C33A, HeLa, CaSki, SiHa, and ME-180)": [
+					"in situ hybridization",
+					"Real Time PCR (qPCR)"
+				],
+				"In situ hybridization": [
+					"In situ hybridization"
+				],
+				"in situ hybridization": [
+					"In situ hybridization"
+				],
+				"in vitro cullelar assays": [
+					"In vitro analysis"
+				],
+				"in vivo gain/loss-of-function experiments": [
+					"In vitro analysis"
+				],
+				"LacZ assay": [
+					"LacZ reporter assay"
+				],
+				"LacZ reporter assay": [
+					"LacZ reporter assay"
+				],
+				"LC-MS/MS": [
+					"LC-MS/MS"
+				],
+				"dual-luciferase reporter assay": [
+					"Luciferase reporter assay"
+				],
+				"Luciferase assay": [
+					"Luciferase reporter assay"
+				],
+				"Luciferase reporter assa": [
+					"Luciferase reporter assay"
+				],
+				"luciferase reporter assay": [
+					"Luciferase reporter assay"
+				],
+				"Luciferase reporter assay": [
+					"Luciferase reporter assay"
+				],
+				"Luciferase reporter assayMTT": [
+					"Luciferase reporter assay"
+				],
+				"luciferase reporter assays": [
+					"Luciferase reporter assay"
+				],
+				"luciferasereporterassay": [
+					"Luciferase reporter assay"
+				],
+				"TOP/FOP luciferase assay": [
+					"Luciferase reporter assay"
+				],
+				"TOP\u8302\u5362\u9225\u6b5bsh/FOP\u8302\u5362\u9225\u6b5bsh reporter assay": [
+					"Luciferase reporter assay"
+				],
+				"TOP\u94ff\u4fdbsh/FOP\u94ff\u4fdbsh reporter assay": [
+					"Luciferase reporter assay"
+				],
+				"Mass spectrometry": [
+					"Mass spectrometry"
+				],
+				"Microarray/In situ hybridization": [
+					"Microarray",
+					"In situ hybridization"
+				],
+				"Luciferase reporter assay/Microarray": [
+					"Microarray",
+					"Luciferase reporter assay"
+				],
+				"Micorarray": [
+					"Microarray"
+				],
+				"Microarray": [
+					"Microarray"
+				],
+				"microarray": [
+					"Microarray"
+				],
+				"Translational profiling": [
+					"Microarray"
+				],
+				"miRNA-masking antisense ODN (miR-Mask) assay": [
+					"miRNA masking antisense ODN (miR-Mask) assay"
+				],
+				"miR PCR array system": [
+					"miRNA PCR array system"
+				],
+				"Branched DNA probe assay": [
+					"miRNA silencing"
+				],
+				"TRAP": [
+					"miRNA trapping by RNA in vitro affinity purification"
+				],
+				"Motility assay": [
+					"Motility assay"
+				],
+				"mRAP": [
+					"mRNA amplification profiling"
+				],
+				"mRNA decay": [
+					"mRNA decay"
+				],
+				"mtt": [
+					"MTT assay"
+				],
+				"MTT": [
+					"MTT assay"
+				],
+				"MTT assay": [
+					"MTT assay"
+				],
+				"Next Generation Sequencing (NGS)": [
+					"NGS"
+				],
+				"NGS": [
+					"NGS"
+				],
+				"Nortern blot": [
+					"Northern blot"
+				],
+				"Northern blot": [
+					"Northern blot"
+				],
+				"Northern blotting": [
+					"Northern blot"
+				],
+				"PAR-CLIP": [
+					"PAR CLIP"
+				],
+				"PCR array": [
+					"PCR array"
+				],
+				"phenotypic sensor assay": [
+					"Phenotypic sensor assay"
+				],
+				"protein array": [
+					"Proteomics analysis"
+				],
+				"Protein Immunoblot Analyses": [
+					"Proteomics analysis"
+				],
+				"Proteomics": [
+					"Proteomics analysis"
+				],
+				"proteomics analysis": [
+					"Proteomics analysis"
+				],
+				"Quantitative proteomic approach": [
+					"Quantitative proteomic approach"
+				],
+				"Luciferase assay/RT-PCR": [
+					"Real Time PCR (qPCR)",
+					"Luciferase reporter assay"
+				],
+				"Luciferase reporter assay/qRT-PCR": [
+					"Real Time PCR (qPCR)",
+					"Luciferase reporter assay"
+				],
+				"Luciferase reporter assay/QRTPCR": [
+					"Real Time PCR (qPCR)",
+					"Luciferase reporter assay"
+				],
+				"qRT-PCR/Luciferase reporter assay": [
+					"Real Time PCR (qPCR)",
+					"Luciferase reporter assay"
+				],
+				"qRT-PCR and Western blot": [
+					"Real Time PCR (qPCR)",
+					"Western blot"
+				],
+				"QRTPCRWestern blot": [
+					"Real Time PCR (qPCR)",
+					"Western blot"
+				],
+				"q-PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"qPCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"qRT_PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"qrt-pcr": [
+					"Real Time PCR (qPCR)"
+				],
+				"qRT-PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"qRT=PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"QRTPCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"quantitative PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"Real time PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"Real time qRT-PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"real time qRT-PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"Real time RT-PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"real-time RT-PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"real-timeRT-PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"RT-PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"RTPCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"semi-qRT-PCR": [
+					"Real Time PCR (qPCR)"
+				],
+				"Reporter assay": [
+					"Reporter assay"
+				],
+				"Reverse-phase protein array": [
+					"Reverse-phase protein array"
+				],
+				"Ribonuclease protection assay": [
+					"Ribonuclease protection assay"
+				],
+				"RISC analysis": [
+					"RISC analysis"
+				],
+				"RISC-IP": [
+					"RISC analysis"
+				],
+				"RISC-seq": [
+					"RISC analysis"
+				],
+				"RNA immunopercipitation": [
+					"RNA immunoprecipitation"
+				],
+				"RNA immunoprecipitation assay (RIP)": [
+					"RNA immunoprecipitation"
+				],
+				"RNA-binding protein immunoprecipitation": [
+					"RNA immunoprecipitation"
+				],
+				"RNAi": [
+					"RNA mediated interference"
+				],
+				"rna-seq": [
+					"RNA seq"
+				],
+				"RNA-seq": [
+					"RNA seq"
+				],
+				"safranin o staining/GAGs contents assay": [
+					"Safranin O staining",
+					"GAGs content assay"
+				],
+				"pSILAC": [
+					"SILAC"
+				],
+				"SILAC (Stable Isotope Labeling of Amino acids in Culture)": [
+					"SILAC"
+				],
+				"Soft agar assay": [
+					"Soft agar assay"
+				],
+				"Southern blot": [
+					"Southern blot"
+				],
+				"Southern Blotting": [
+					"Southern blot"
+				],
+				"sphere assay": [
+					"Sphere assay"
+				],
+				"Alizarin red S staining": [
+					"Staining"
+				],
+				"TaqMan miRNA assay/RT-PCR": [
+					"TaqMan miRNA assay",
+					"RT-PCR"
+				],
+				"TaqMan miRNA assay": [
+					"TaqMan miRNA assay"
+				],
+				"three within the 3\u8292\u9227\ue0dd?untranslated region (UTR) as identified through Targetscan (http:": [
+					"TargetScan"
+				],
+				"three within the 3\u9225?untranslated region (UTR) as identified through Targetscan (http:": [
+					"TargetScan"
+				],
+				"TargetScan": [
+					"TargetScan"
+				],
+				"To test if miR-141 directly targets the PR transcript, we analyzed four predicted miR-141-binding sites (Figure 4c)": [
+					"TargetScan"
+				],
+				"www.targetscan.org/) and one in the la": [
+					"TargetScan"
+				],
+				"transwell insert": [
+					"Transwell insert"
+				],
+				"Luciferase reporter assay and western blot": [
+					"Western blot",
+					"Luciferase reporter assay"
+				],
+				"Luciferase reporter assay/Western blot": [
+					"Western blot",
+					"Luciferase reporter assay"
+				],
+				"Western blot": [
+					"Western blot"
+				],
+				"/Western blot": [
+					"Western blot"
+				],
+				"Weastern blot": [
+					"Western blot"
+				],
+				"Western": [
+					"Western blot"
+				],
+				"Western blo": [
+					"Western blot"
+				],
+				"Western blog": [
+					"Western blot"
+				],
+				"western blot": [
+					"Western blot"
+				],
+				"Western Blot": [
+					"Western blot"
+				],
+				"WEstern blot": [
+					"Western blot"
+				],
+				"Western blot ": [
+					"Western blot"
+				],
+				"Western blotting": [
+					"Western blot"
+				],
+				"Western Blotting": [
+					"Western blot"
+				],
+				"westernblotting": [
+					"Western blot"
+				],
+				"Westren blot": [
+					"Western blot"
+				],
+				"Westren Blot": [
+					"Western blot"
+				],
+				"Wetsern blot": [
+					"Western blot"
+				],
+				"Wstern blot": [
+					"Western blot"
+				],
+				"Western blot, luciferase assay": [
+					"Western blot\u201d, \"Luciferase reporter assay"
+				],
+				"wound healing assays": [
+					"Wound-healing assay"
+				],
+				"Zymography": [
+					"Zymography analysis"
+				],
+				"apoptosis": [],
+				"Cleaved amplified polymorphic sequences": [],
+				"EMSA": [],
+				"mice xenograft": [],
+				"nan": [],
+				"Other": [],
+				"pMIR-REPORT": [],
+				"Unknown": [],
+				"": [
+					""
+				],
+				" Western blot": [
+					"Western blot"
+				],
+				" three within the 3\u9225?untranslated region (UTR) as identified through Targetscan (http:": [
+					"TargetScan"
+				],
+				" three within the 3\u8292\u9227\ue0dd?untranslated region (UTR) as identified through Targetscan (http:": [
+					"TargetScan"
+				]
 			},
 			"known_separators": [
 				"//",

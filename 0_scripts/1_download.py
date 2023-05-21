@@ -56,8 +56,9 @@ def main():
 
 
 if __name__ == '__main__':
-	if '--show-args' in sys.argv:
-		print( sys.argv )
+	if '--help' in sys.argv:
+		print( '''Command line options:
+--no-chdir             no not change the directory to the one of the script''' )
 		exit( 0 )
 	#↘ usa el directorio con el cual se está trabajando
 	elif '--no-chdir' in sys.argv:
@@ -72,6 +73,4 @@ if __name__ == '__main__':
 			)
 		os.chdir( newpath )
 		print( 'Using', os.path.abspath( os.getcwd() ), 'as cwd' )
-		print( 'Use `--no-chdir` to avoid path change' )
-		input( 'Press [enter] to continue or [^C] to cancel\n' )
 	main()
