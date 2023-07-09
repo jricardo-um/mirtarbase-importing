@@ -8,8 +8,8 @@ from gprofiler import GProfiler
 def enrichment( specie_mtb: str, genes: list ):
 	gp = GProfiler( return_dataframe=False )
 	res = gp.profile(
-		organism='hsapiens',  # TODO: https://biit.cs.ut.ee/gprofiler/page/organism-list
-		query=genes,
+	 organism='hsapiens',  # TODO: https://biit.cs.ut.ee/gprofiler/page/organism-list
+	 query=genes,
 	)
 	for r in res:
 		yield r[ 'native' ]
@@ -59,11 +59,11 @@ def retrieve_with_pymongo( conditions, fields ):
 @app.route( '/', methods=[ 'GET' ] )
 def mainmenu():
 	return jsonify( {
-		'help': 'please use one of the shown formats',
-		'fmts': {
-		'/genes?mirna=<id>': 'get genes regulted by mirna',
-		'/mirnas?gene=<id>': 'get mirnas regulting a gene',
-		},
+	 'help': 'please use one of the shown formats',
+	 'fmts': {
+	  '/genes?mirna=<id>': 'get genes regulted by mirna',
+	  '/mirnas?gene=<id>': 'get mirnas regulting a gene',
+	 },
 	} )
 
 
@@ -99,3 +99,8 @@ def mirnas():
 if __name__ == "__main__":
 	app.run( debug=True )
 	# para probar http://127.0.0.1:5000/genes?mirna=MIRT134276
+
+# en la respuesta poner info de los codigos g_profiler
+# cambiar el mirna=
+# añadir evidence= strong|weak
+# pasar toda la fila
