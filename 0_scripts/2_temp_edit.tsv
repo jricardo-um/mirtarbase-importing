@@ -1,18 +1,26 @@
 2-D Gel Electrophoresis (2DGE)	2D gel electrophoresis	
+2D gel electrophoresis	2D gel electrophoresis	
 2DGE	2D gel electrophoresis	
+3' LIFE	3' LIFE	
 3'LIFE	3' LIFE	
 3RACE	3' RACE	
+3' Seq	3' Seq	
 3'-Seq	3' Seq	
+5' RACE	5' RACE	
 5'RACE	5' RACE	
 5""RACE	5' RACE	
 5"RACE	5' RACE	
 5\'RACE	5' RACE	
 5RACE	5' RACE	
 anoikis assay	Anoikis assay	
+Anoikis assay	Anoikis assay	
 Annexin V-FITC	Apoptosis detection	
+Apoptosis detection	Apoptosis detection	
 ASO assay	ASO assay	
-B-globin reporter assay	beta globin reporter assay	
+B-globin reporter assay	Beta globin reporter assay	
+Beta globin reporter assay	Beta globin reporter assay	
 CAM assay	CAM assay	
+Caspase Glo (R) assay	Caspase Glo (R) assay	
 Caspase-Glo庐 3/7 assay	Caspase Glo (R) assay	
 Caspase-Glo脗庐 3/7 assay	Caspase Glo (R) assay	
 cell cycle assays	Cell proliferation assays	
@@ -30,8 +38,10 @@ chip-seq	Chromatin Immunoprecipitation (ChIP)
 ChIP-seq	Chromatin Immunoprecipitation (ChIP)	
 Chromatin Immunoprecipitation	Chromatin Immunoprecipitation (ChIP)	
 Chromatin immunoprecipitation	Chromatin Immunoprecipitation (ChIP)	
+Chromatin Immunoprecipitation (ChIP)	Chromatin Immunoprecipitation (ChIP)	
 Chromatin Immunoprecipitation (ChIP) Assays	Chromatin Immunoprecipitation (ChIP)	
 Chromogenic in situ hybridization	Chromogenic in situ hybridization (CISH)	
+Chromogenic in situ hybridization (CISH)	Chromogenic in situ hybridization (CISH)	
 CLIP-seq	CLIP-seq	
 CLIP-Seq dataset analysis	CLIP-seq	
 Sequencing	CLIP-seq	
@@ -41,12 +51,14 @@ AGO2 Immunoprecipitation	Cross-Linking and Immuno-Precipitation (CLIP)
 Ago2-IP/IgG-IP	Cross-Linking and Immuno-Precipitation (CLIP)	
 AGO2 binding RNA immunoprecipitation qRT-PCR	Cross-linking, Ligation, and Sequencing of Hybrids (CLASH)	Real Time PCR (qPCR)
 CLASH	Cross-linking, Ligation, and Sequencing of Hybrids (CLASH)	
+Cross-linking, Ligation, and Sequencing of Hybrids (CLASH)	Cross-linking, Ligation, and Sequencing of Hybrids (CLASH)	
 Degradome	Degradome sequencing	
 Degradome sequencing	Degradome sequencing	
 DNA methylation analysis	DNA methylation analysis	
 ELISALuciferase reporter assay	ELISA	Luciferase reporter assay
 ELISA	ELISA	
 enzyme-linked immunosorbent assay	ELISA	
+Expression analysis	Expression analysis	
 intrarenal expression	Expression analysis	
 FACS	FACS	
 FISH	FISH	
@@ -56,19 +68,22 @@ Flow cytometry	Flow cytometry
 EGFP reporter assay	FP reporter	
 EGFR reporter assay	FP reporter	
 Fluorescence reporter assay	FP reporter	
+FP reporter	FP reporter	
 GFP reporter	FP reporter	
 GFP reporter assay	FP reporter	
 GFP Reporter Assay	FP reporter	
 YFP expression	FP reporter	
 YFP fluorescent-labelled reporter assay	FP reporter	
 YFP reporter assay	FP reporter	
+GAGs content assay	GAGs content assay	
 Genotyping	Genotyping	
 Gluc assay	Gluc reporter assay	
 Gluc reporter assay	Gluc reporter assay	
 GUS reporter assay	GUS reporter assay	
 HITS-CLIP	HITS-CLIP	
 HITS-CLIP聽	HITS-CLIP	
-IlluminaExpressionArrays	Illumina Expression Arrays	
+Illumina expression arrays	Illumina expression arrays	
+IlluminaExpressionArrays	Illumina expression arrays	
 Immunoblot	Immunoblot	
 immunoblot	Immunoblot	
 immunoblot analysis	Immunoblot	
@@ -100,9 +115,11 @@ Immunoprecipitaion	Immunoprecipitation (IP)
 Immunoprecipitaion (IP)	Immunoprecipitation (IP)	
 Immunoprecipitaion銊uciferase reporter assay	Immunoprecipitation (IP)	
 Immunoprecipitation	Immunoprecipitation (IP)	
+Immunoprecipitation (IP)	Immunoprecipitation (IP)	
 immunosorbent	Immunostaining	
 immunostaining	Immunostaining	
 Immunostaining	Immunostaining	
+In silico analysis	In silico analysis	
 silico analysis	In silico analysis	
 CC tissues and cells (C33A, HeLa, CaSki, SiHa, and ME-180)	in situ hybridization	Real Time PCR (qPCR)
 In situ hybridization	In situ hybridization	
@@ -133,9 +150,12 @@ Translational profiling	Microarray
 miRNA-masking antisense ODN (miR-Mask) assay	miRNA masking antisense ODN (miR-Mask) assay	
 miR PCR array system	miRNA PCR array system	
 Branched DNA probe assay	miRNA silencing	
+miRNA silencing	miRNA silencing	
+miRNA trapping by RNA in vitro affinity purification	miRNA trapping by RNA in vitro affinity purification	
 TRAP	miRNA trapping by RNA in vitro affinity purification	
 Motility assay	Motility assay	
 mRAP	mRNA amplification profiling	
+mRNA amplification profiling	mRNA amplification profiling	
 mRNA decay	mRNA decay	
 mtt	MTT assay	
 MTT	MTT assay	
@@ -145,13 +165,16 @@ NGS	NGS
 Nortern blot	Northern blot	
 Northern blot	Northern blot	
 Northern blotting	Northern blot	
+PAR CLIP	PAR CLIP	
 PAR-CLIP	PAR CLIP	
 PCR array	PCR array	
 phenotypic sensor assay	Phenotypic sensor assay	
+Phenotypic sensor assay	Phenotypic sensor assay	
 protein array	Proteomics analysis	
 Protein Immunoblot Analyses	Proteomics analysis	
 Proteomics	Proteomics analysis	
 proteomics analysis	Proteomics analysis	
+Proteomics analysis	Proteomics analysis	
 Quantitative proteomic approach	Quantitative proteomic approach	
 Luciferase assay/RT-PCR	Real Time PCR (qPCR)	Luciferase reporter assay
 Luciferase reporter assay/qRT-PCR	Real Time PCR (qPCR)	Luciferase reporter assay
@@ -168,6 +191,7 @@ qRT=PCR	Real Time PCR (qPCR)
 QRTPCR	Real Time PCR (qPCR)	
 quantitative PCR	Real Time PCR (qPCR)	
 Real time PCR	Real Time PCR (qPCR)	
+Real Time PCR (qPCR)	Real Time PCR (qPCR)	
 Real time qRT-PCR	Real Time PCR (qPCR)	
 real time qRT-PCR	Real Time PCR (qPCR)	
 Real time RT-PCR	Real Time PCR (qPCR)	
@@ -183,35 +207,46 @@ RISC analysis	RISC analysis
 RISC-IP	RISC analysis	
 RISC-seq	RISC analysis	
 RNA immunopercipitation	RNA immunoprecipitation	
+RNA immunoprecipitation	RNA immunoprecipitation	
 RNA immunoprecipitation assay (RIP)	RNA immunoprecipitation	
 RNA-binding protein immunoprecipitation	RNA immunoprecipitation	
 RNAi	RNA mediated interference	
+RNA seq	RNA seq	
 rna-seq	RNA seq	
 RNA-seq	RNA seq	
 safranin o staining/GAGs contents assay	Safranin O staining	GAGs content assay
+Safranin O staining	Safranin O staining	
 pSILAC	SILAC	
+SILAC	SILAC	
 SILAC (Stable Isotope Labeling of Amino acids in Culture)	SILAC	
 Soft agar assay	Soft agar assay	
 Southern blot	Southern blot	
 Southern Blotting	Southern blot	
 sphere assay	Sphere assay	
+Sphere assay	Sphere assay	
 Alizarin red S staining	Staining	
+Staining	Staining	
 TaqMan miRNA assay/RT-PCR	TaqMan miRNA assay	RT-PCR
 TaqMan miRNA assay	TaqMan miRNA assay	
+ three within the 3芒鈧?untranslated region (UTR) as identified through Targetscan (http:	TargetScan	
+ three within the 3鈥?untranslated region (UTR) as identified through Targetscan (http:	TargetScan	
+TargetScan	TargetScan	
 three within the 3芒鈧?untranslated region (UTR) as identified through Targetscan (http:	TargetScan	
 three within the 3鈥?untranslated region (UTR) as identified through Targetscan (http:	TargetScan	
-TargetScan	TargetScan	
 To test if miR-141 directly targets the PR transcript, we analyzed four predicted miR-141-binding sites (Figure 4c)	TargetScan	
 www.targetscan.org/) and one in the la	TargetScan	
 transwell insert	Transwell insert	
+Transwell insert	Transwell insert	
 Luciferase reporter assay and western blot	Western blot	Luciferase reporter assay
 Luciferase reporter assay/Western blot	Western blot	Luciferase reporter assay
-Western blot	Western blot	
+Western blot, luciferase assay	Western blot	Luciferase reporter assay
+ Western blot	Western blot	
 /Western blot	Western blot	
 Weastern blot	Western blot	
 Western	Western blot	
 Western blo	Western blot	
 Western blog	Western blot	
+Western blot	Western blot	
 western blot	Western blot	
 Western Blot	Western blot	
 WEstern blot	Western blot	
@@ -223,15 +258,67 @@ Westren blot	Western blot
 Westren Blot	Western blot	
 Wetsern blot	Western blot	
 Wstern blot	Western blot	
-Western blot, luciferase assay	Western blot”, "Luciferase reporter assay	
 wound healing assays	Wound-healing assay	
+Wound-healing assay	Wound-healing assay	
 Zymography	Zymography analysis	
+Zymography analysis	Zymography analysis	
+ 		
+-		
+,		
+:		
+?		
+'		
+(		
+)		
+2		
+3		
+5		
+A		
+a		
 apoptosis		
+b		
+B		
+C		
+c		
 Cleaved amplified polymorphic sequences		
+d		
+D		
+E		
+e		
 EMSA		
+f		
+F		
+g		
+H		
+h		
+i		
+I		
+k		
+l		
+L		
+m		
 mice xenograft		
+n		
+N		
 nan		
+o		
 Other		
+P		
+p		
 pMIR-REPORT		
+q		
+R		
+r		
+s		
+S		
+T		
+t		
+u		
+U		
 Unknown		
- Western blot	Western blot	
+v		
+W		
+w		
+x		
+y		
+鈥		

@@ -2,18 +2,18 @@
 	"column_as_index": "miRTarBase ID",
 	"column_configs": {
 		"Experiments": {
-			"custom": true,
-			"custom_functions": [
-				"multisep",
-				"vocabset"
-			],
-			"savename": "evidence:experiments",
 			"allowed_values": {
 				"2-D Gel Electrophoresis (2DGE)": [
 					"2D gel electrophoresis"
 				],
+				"2D gel electrophoresis": [
+					"2D gel electrophoresis"
+				],
 				"2DGE": [
 					"2D gel electrophoresis"
+				],
+				"3' LIFE": [
+					"3' LIFE"
 				],
 				"3'LIFE": [
 					"3' LIFE"
@@ -21,8 +21,14 @@
 				"3RACE": [
 					"3' RACE"
 				],
+				"3' Seq": [
+					"3' Seq"
+				],
 				"3'-Seq": [
 					"3' Seq"
+				],
+				"5' RACE": [
+					"5' RACE"
 				],
 				"5'RACE": [
 					"5' RACE"
@@ -42,17 +48,29 @@
 				"anoikis assay": [
 					"Anoikis assay"
 				],
+				"Anoikis assay": [
+					"Anoikis assay"
+				],
 				"Annexin V-FITC": [
+					"Apoptosis detection"
+				],
+				"Apoptosis detection": [
 					"Apoptosis detection"
 				],
 				"ASO assay": [
 					"ASO assay"
 				],
 				"B-globin reporter assay": [
-					"beta globin reporter assay"
+					"Beta globin reporter assay"
+				],
+				"Beta globin reporter assay": [
+					"Beta globin reporter assay"
 				],
 				"CAM assay": [
 					"CAM assay"
+				],
+				"Caspase Glo (R) assay": [
+					"Caspase Glo (R) assay"
 				],
 				"Caspase-Glo\u5e90 3/7 assay": [
 					"Caspase Glo (R) assay"
@@ -105,10 +123,16 @@
 				"Chromatin immunoprecipitation": [
 					"Chromatin Immunoprecipitation (ChIP)"
 				],
+				"Chromatin Immunoprecipitation (ChIP)": [
+					"Chromatin Immunoprecipitation (ChIP)"
+				],
 				"Chromatin Immunoprecipitation (ChIP) Assays": [
 					"Chromatin Immunoprecipitation (ChIP)"
 				],
 				"Chromogenic in situ hybridization": [
+					"Chromogenic in situ hybridization (CISH)"
+				],
+				"Chromogenic in situ hybridization (CISH)": [
 					"Chromogenic in situ hybridization (CISH)"
 				],
 				"CLIP-seq": [
@@ -139,6 +163,9 @@
 				"CLASH": [
 					"Cross-linking, Ligation, and Sequencing of Hybrids (CLASH)"
 				],
+				"Cross-linking, Ligation, and Sequencing of Hybrids (CLASH)": [
+					"Cross-linking, Ligation, and Sequencing of Hybrids (CLASH)"
+				],
 				"Degradome": [
 					"Degradome sequencing"
 				],
@@ -157,6 +184,9 @@
 				],
 				"enzyme-linked immunosorbent assay": [
 					"ELISA"
+				],
+				"Expression analysis": [
+					"Expression analysis"
 				],
 				"intrarenal expression": [
 					"Expression analysis"
@@ -185,6 +215,9 @@
 				"Fluorescence reporter assay": [
 					"FP reporter"
 				],
+				"FP reporter": [
+					"FP reporter"
+				],
 				"GFP reporter": [
 					"FP reporter"
 				],
@@ -202,6 +235,9 @@
 				],
 				"YFP reporter assay": [
 					"FP reporter"
+				],
+				"GAGs content assay": [
+					"GAGs content assay"
 				],
 				"Genotyping": [
 					"Genotyping"
@@ -221,8 +257,11 @@
 				"HITS-CLIP\u807d": [
 					"HITS-CLIP"
 				],
+				"Illumina expression arrays": [
+					"Illumina expression arrays"
+				],
 				"IlluminaExpressionArrays": [
-					"Illumina Expression Arrays"
+					"Illumina expression arrays"
 				],
 				"Immunoblot": [
 					"Immunoblot"
@@ -317,6 +356,9 @@
 				"Immunoprecipitation": [
 					"Immunoprecipitation (IP)"
 				],
+				"Immunoprecipitation (IP)": [
+					"Immunoprecipitation (IP)"
+				],
 				"immunosorbent": [
 					"Immunostaining"
 				],
@@ -325,6 +367,9 @@
 				],
 				"Immunostaining": [
 					"Immunostaining"
+				],
+				"In silico analysis": [
+					"In silico analysis"
 				],
 				"silico analysis": [
 					"In silico analysis"
@@ -419,6 +464,12 @@
 				"Branched DNA probe assay": [
 					"miRNA silencing"
 				],
+				"miRNA silencing": [
+					"miRNA silencing"
+				],
+				"miRNA trapping by RNA in vitro affinity purification": [
+					"miRNA trapping by RNA in vitro affinity purification"
+				],
 				"TRAP": [
 					"miRNA trapping by RNA in vitro affinity purification"
 				],
@@ -426,6 +477,9 @@
 					"Motility assay"
 				],
 				"mRAP": [
+					"mRNA amplification profiling"
+				],
+				"mRNA amplification profiling": [
 					"mRNA amplification profiling"
 				],
 				"mRNA decay": [
@@ -455,6 +509,9 @@
 				"Northern blotting": [
 					"Northern blot"
 				],
+				"PAR CLIP": [
+					"PAR CLIP"
+				],
 				"PAR-CLIP": [
 					"PAR CLIP"
 				],
@@ -462,6 +519,9 @@
 					"PCR array"
 				],
 				"phenotypic sensor assay": [
+					"Phenotypic sensor assay"
+				],
+				"Phenotypic sensor assay": [
 					"Phenotypic sensor assay"
 				],
 				"protein array": [
@@ -474,6 +534,9 @@
 					"Proteomics analysis"
 				],
 				"proteomics analysis": [
+					"Proteomics analysis"
+				],
+				"Proteomics analysis": [
 					"Proteomics analysis"
 				],
 				"Quantitative proteomic approach": [
@@ -530,6 +593,9 @@
 				"Real time PCR": [
 					"Real Time PCR (qPCR)"
 				],
+				"Real Time PCR (qPCR)": [
+					"Real Time PCR (qPCR)"
+				],
 				"Real time qRT-PCR": [
 					"Real Time PCR (qPCR)"
 				],
@@ -575,6 +641,9 @@
 				"RNA immunopercipitation": [
 					"RNA immunoprecipitation"
 				],
+				"RNA immunoprecipitation": [
+					"RNA immunoprecipitation"
+				],
 				"RNA immunoprecipitation assay (RIP)": [
 					"RNA immunoprecipitation"
 				],
@@ -583,6 +652,9 @@
 				],
 				"RNAi": [
 					"RNA mediated interference"
+				],
+				"RNA seq": [
+					"RNA seq"
 				],
 				"rna-seq": [
 					"RNA seq"
@@ -594,7 +666,13 @@
 					"Safranin O staining",
 					"GAGs content assay"
 				],
+				"Safranin O staining": [
+					"Safranin O staining"
+				],
 				"pSILAC": [
+					"SILAC"
+				],
+				"SILAC": [
 					"SILAC"
 				],
 				"SILAC (Stable Isotope Labeling of Amino acids in Culture)": [
@@ -612,7 +690,13 @@
 				"sphere assay": [
 					"Sphere assay"
 				],
+				"Sphere assay": [
+					"Sphere assay"
+				],
 				"Alizarin red S staining": [
+					"Staining"
+				],
+				"Staining": [
 					"Staining"
 				],
 				"TaqMan miRNA assay/RT-PCR": [
@@ -622,13 +706,19 @@
 				"TaqMan miRNA assay": [
 					"TaqMan miRNA assay"
 				],
+				" three within the 3\u8292\u9227\ue0dd?untranslated region (UTR) as identified through Targetscan (http:": [
+					"TargetScan"
+				],
+				" three within the 3\u9225?untranslated region (UTR) as identified through Targetscan (http:": [
+					"TargetScan"
+				],
+				"TargetScan": [
+					"TargetScan"
+				],
 				"three within the 3\u8292\u9227\ue0dd?untranslated region (UTR) as identified through Targetscan (http:": [
 					"TargetScan"
 				],
 				"three within the 3\u9225?untranslated region (UTR) as identified through Targetscan (http:": [
-					"TargetScan"
-				],
-				"TargetScan": [
 					"TargetScan"
 				],
 				"To test if miR-141 directly targets the PR transcript, we analyzed four predicted miR-141-binding sites (Figure 4c)": [
@@ -640,6 +730,9 @@
 				"transwell insert": [
 					"Transwell insert"
 				],
+				"Transwell insert": [
+					"Transwell insert"
+				],
 				"Luciferase reporter assay and western blot": [
 					"Western blot",
 					"Luciferase reporter assay"
@@ -648,7 +741,11 @@
 					"Western blot",
 					"Luciferase reporter assay"
 				],
-				"Western blot": [
+				"Western blot, luciferase assay": [
+					"Western blot",
+					"Luciferase reporter assay"
+				],
+				" Western blot": [
 					"Western blot"
 				],
 				"/Western blot": [
@@ -664,6 +761,9 @@
 					"Western blot"
 				],
 				"Western blog": [
+					"Western blot"
+				],
+				"Western blot": [
 					"Western blot"
 				],
 				"western blot": [
@@ -699,80 +799,83 @@
 				"Wstern blot": [
 					"Western blot"
 				],
-				"Western blot, luciferase assay": [
-					"Western blot\u201d, \"Luciferase reporter assay"
-				],
 				"wound healing assays": [
+					"Wound-healing assay"
+				],
+				"Wound-healing assay": [
 					"Wound-healing assay"
 				],
 				"Zymography": [
 					"Zymography analysis"
 				],
+				"Zymography analysis": [
+					"Zymography analysis"
+				],
+				"": [],
+				"-": [],
+				",": [],
+				":": [],
+				"?": [],
+				"'": [],
+				"(": [],
+				")": [],
+				"2": [],
+				"3": [],
+				"5": [],
+				"A": [],
+				"a": [],
 				"apoptosis": [],
+				"b": [],
+				"B": [],
+				"C": [],
+				"c": [],
 				"Cleaved amplified polymorphic sequences": [],
+				"d": [],
+				"D": [],
+				"E": [],
+				"e": [],
 				"EMSA": [],
+				"f": [],
+				"F": [],
+				"g": [],
+				"H": [],
+				"h": [],
+				"i": [],
+				"I": [],
+				"k": [],
+				"l": [],
+				"L": [],
+				"m": [],
 				"mice xenograft": [],
+				"n": [],
+				"N": [],
 				"nan": [],
+				"o": [],
 				"Other": [],
+				"P": [],
+				"p": [],
 				"pMIR-REPORT": [],
+				"q": [],
+				"R": [],
+				"r": [],
+				"s": [],
+				"S": [],
+				"T": [],
+				"t": [],
+				"u": [],
+				"U": [],
 				"Unknown": [],
-				"": [
-					""
-				],
-				" Western blot": [
-					"Western blot"
-				],
-				" three within the 3\u9225?untranslated region (UTR) as identified through Targetscan (http:": [
-					"TargetScan"
-				],
-				" three within the 3\u8292\u9227\ue0dd?untranslated region (UTR) as identified through Targetscan (http:": [
-					"TargetScan"
-				]
+				"v": [],
+				"W": [],
+				"w": [],
+				"x": [],
+				"y": [],
+				"\u9225": [],
+				" ": []
 			},
 			"known_separators": [
 				"//",
 				";"
-			]
-		},
-		"miRTarBase ID": {
-			"custom": false,
-			"savename": "mirtarbase_id"
-		},
-		"miRNA": {
-			"custom": false,
-			"savename": "mirna"
-		},
-		"Species (miRNA)": {
-			"custom": false,
-			"savename": "specie"
-		},
-		"Target Gene": {
-			"custom": false,
-			"savename": "gene_symbol"
-		},
-		"Target Gene (Entrez ID)": {
-			"custom": true,
-			"savename": "gene_entrez",
-			"custom_functions": [
-				"integer"
-			]
-		},
-		"Species (Target Gene)": {
-			"custom": true,
-			"savename": "specie_target",
-			"custom_functions": [
-				"ignore"
-			]
-		},
-		"Support Type": {
-			"custom": false,
-			"savename": "evidence:support_type"
-		},
-		"References (PMID)": {
-			"custom": true,
-			"savename": "evidence:pmid",
-			"custom_functions": [
-				"integer"
 			]
 		}
 	}

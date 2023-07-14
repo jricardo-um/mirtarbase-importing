@@ -31,7 +31,7 @@ def main():
 	with Manager() as mgr:
 		#> list of files to download
 		url_list = mgr.Queue()
-		with open( './1_download_list.txt' ) as url_list_file:
+		with open( './1_list.txt' ) as url_list_file:
 			for line in url_list_file.readlines():
 				url_list.put( line.strip() )
 		current = mgr.list()
@@ -68,8 +68,8 @@ if __name__ == '__main__':
 		newpath = os.path.dirname( sys.argv[ 0 ] )
 		if not os.path.isabs( newpath ):
 			newpath = os.path.join(
-				os.path.abspath( os.getcwd() ),
-				newpath,
+			 os.path.abspath( os.getcwd() ),
+			 newpath,
 			)
 		os.chdir( newpath )
 		print( 'Using', os.path.abspath( os.getcwd() ), 'as cwd' )
