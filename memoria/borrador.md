@@ -1,4 +1,4 @@
-{ #INFO: longitud actual ~ 2 300 palabras = ~ 9 páginas }
+{ #INFO: longitud actual ~ 3 200 palabras = ~ 13 páginas }
 
 { #TODO: poner título y ajustar formato en el documento final }
 
@@ -132,8 +132,6 @@ Para desarrollar este trabajo se ha usado Python 3.10 como lenguaje, Visual Stud
 
 ### Carga de datos de miRTarBase a MongoDB
 
-{ #PROFE: [...]. Problemas que has encontrado, que eso nos da juego para luego en la discusión hablar del estado actual de algunas bases de datos de bioinformática, etc. }
-
 { #PROFE: Pones los pasos pero yo lo apoyaría con un gráfico con el flujo de los datos. Si buscas data flowchart puedes ver algunos ejemplos. }
 
 Para cargar los datos a MongoDB se han desarrollado scripts de python que realizan los siguientes pasos:
@@ -186,11 +184,15 @@ Para convertir la base de datos y optimizarla para nuestras herramientas y neces
 
 Tabla: ejemplo de una entrada MTI en el fichero `.xlsx` de miRTarBase.
 
-Puesto que hay varios 
+Puesto que hay varios artículos que hacen referencia al mismo MTI, y varios experimentos que hacen referencia a los mismos artículos, los autores han usado las dos soluciones más comunes para forzar ese tipo de datos en una tabla:
+
+- Para los campos de los artículos (`Support Type` y `References (PMID)`) han copiado las filas a las que hacen referencia y han variado esas columnas.
+
+- Para el campo `Experiments` han usado una secuencia de caracteres como separados entre los ítems, que han juntado en la misma celda.
 
 #### Errores y aspectos a mejorar
 
-Cuando un MTI tiene varios artículos se repite la fila cambiando las columnas que hacen referencia a cada uno \(`Experiments`, `Support Type` y `References (PMID)`\). Debido a esto, la base de datos original tiene mucha información repetida que la hace pesada.
+Puesto que las columans de los artículos repiten cada MTI al que hacen referencia, la base de datos original tiene la información de los MTI muy repetida y la hace innecesariamente pesada.
 
 El campo `Experiments` tiene varios problemas. Los nombres de las técnicas son inconsistentes, usando o no abreviaciones y sinónimos. Además, hay muchos errores de otrografía arbitrarios y diferentes en diferentes entradas de los nombres de cada técnica. Finalmente, los separadores cambian en algunas entradas. En la mayoría son dos barras `//` o punto y coma `;`.
 
