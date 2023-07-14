@@ -70,6 +70,38 @@ Después, se desarrollará un servicio REST que permita consultar la base de dat
 
 ## Materiales
 
+### Fuentes de datos
+
+Existen muchas bases de datos que recogen información relacionada com microRNAs. Algunas de ellas son:
+
+- miRBase recoge secuencias de RNA y localizaciones cromosómicas de dichas moléculas. Además, recoge anotaciones y referencias a otras herramientas y bases de datos.
+  
+  - No posee una API para consumo computerizado. Las secuencias se pueden descargar en formato fasta, las localizaciones cromosómicas en un archivo `.gff3` y el resto de datos en un archivo con formato EMBL.
+
+- TarDB recoge predicciones de MTI de plantas e información relacionada de sus funciones.
+  
+  - Tampoco posee una API, pero se pueden descargar los datos en `.cons`, una tabla con alineaciones.
+
+- miRmap recoge predicciones computerizadas sobre los MTI.
+  
+  - Posee una API, interfaz web con muchas opciones, y pueden descargarse los datos en formato libre `.csv`.
+
+- miR2Disease recoge los MTI implicados en diversas enfermedades humanas.
+  
+  - No posee una API, se puede descargar una tabla en `.txt`.
+
+- miRTarBase recoge evidencias experimentales de los MTI de muchas especies.
+  
+  - Tampoco posee una API, se puede descargar como una tabla `.xlsx`.
+
+#### miRTarBase
+
+Puesto que los objetivos de este trabajo requieren partir de evidencias experimentales, y se pretende aplicar al máximo de entradas posibles, se ha escogido miRTarBase para obtener información de los MTIs. Esta base de datos surgió en 2011, y durante la última década ha ido recogiendo manualmente imformación sobre MTIs creciendo su tamaño exponencialmente.
+
+Desde su inicio y hasta ahora, la única manera de consultarla ha sido mediante su interfaz web, que han mejorado con cada actualización de la base de datos. Devuelve una tabla con el identificador, las moléculas, sus especies y los experimentos desglosados según la evidencia.
+
+Por desgracia, no han implementado una API que permita el análisis y la consulta computerizadas, y la única manera de descargarlo es en formato `.xlsx`, que es propietario y no orientado a la programación. Para explotar la información que contiene habrá que exportarlo a la base de datos que hemos escogido.
+
 ### Bases de datos
 
 Debido a la gran cantidad de conocimiento que se genera en relación con la biología, es necesario poder organizar, indexar y recuperar toda esa información. Las bases de datos, que son memorias informáticas en las que pueden integrarse datos dispuestos de modo que sean accesibles individualmente, cumplen exaxtamente esa función y han proliferado muchas diferentes para cada campo o tema de la biología.
@@ -98,11 +130,7 @@ La base de datos escogida para este proyecto es MongoDB, una base de datos con m
 
 - { #TODO: añadir alguna propiedad más si es relevante }
 
-### Fuentes de datos
-
-{ #PROFE: Mirtarbase debería de tener su propio apartado y explicarlo detalladamente. }
-
-Para obtener los MTI se ha usado miRTarBase.
+#### Gene Ontology y Human Phenotype Ontology
 
 { #TODO: leer artículos y escribir sobre GO y HPO }
 
@@ -196,9 +224,11 @@ Puesto que las columans de los artículos repiten cada MTI al que hacen referenc
 
 El campo `Experiments` tiene varios problemas. Los nombres de las técnicas son inconsistentes, usando o no abreviaciones y sinónimos. Además, hay muchos errores de otrografía arbitrarios y diferentes en diferentes entradas de los nombres de cada técnica. Finalmente, los separadores cambian en algunas entradas. En la mayoría son dos barras `//` o punto y coma `;`.
 
-{ #TODO: descarte de `gene_symbol` tipo `datetime.datetime` }
+El campo `Target Gene` recoge genes cuyos nombres suelen estar compuestos por pocas letras y números. Puesto que la base de datos se ha guardado en `.xlsx`, y que Excel puede reemplazar conjuntos de letras y números por fechas, cambiando no sólo la representación sino el valor (se reemplaza por una estampa de tiempo), estas entradas pierden la información irreversiblemente.
 
-Por último, el campo `miRTarBase ID` debería ser un identificador único para cada MTI, pero en un análisis de `hsa_MTI.xlsx` he identificado más de 16 000 conflictos \(distintos pares de MTI a los que les han asignado el mismo ID\). Me pondré en contacto con el grupo que confecciona la base de datos para informarles una vez haya acabado este trabajo.
+Por último, el campo `miRTarBase ID` debería ser un identificador único para cada MTI, pero en un análisis de `hsa_MTI.xlsx` he identificado más de 16 000 conflictos (distintos pares de MTI a los que les han asignado el mismo ID). Me pondré en contacto con el grupo que confecciona la base de datos para informarles una vez haya acabado este trabajo.
+
+{ #TODO: quedan algunos conflictos menores... }
 
 #### Estructura nueva para MongoDB
 
