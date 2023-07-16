@@ -1,4 +1,4 @@
-{ #INFO: longitud actual ~ 3 200 palabras = ~ 13 páginas }
+{ #INFO: longitud actual ~ 4 700 palabras = ~ 16 páginas }
 
 { #TODO: poner título y ajustar formato en el documento final }
 
@@ -40,19 +40,17 @@ Trabajo de fin de máster de Jorge Ricardo Alonso Fernández
 
 ## Introducción
 
-{ #PROFE: La introducción la vamos a dejar para el final. Porque va a salir sola una vez que tengamos el resto de cosas. Tienes que ver la introducción como una introducción al problema que pretendemos resolver. Habría que describir mucho los mirnas y el impacto biológico que tienen. Luego habría que describir las bases de datos que hay de mirnas. No sólo está mirtarbase. Comentar sus debilidades y plantear el problema que nos da pie a escribir los objetivos. }
+En 1993 se descubrió por primera vez un microRNA en _C. Elegans_, llamado _lin-4_, junto con algunas mutaciones que provocaban pérdidas de función. Y no fue hasta el 2000 que se descubrió otro más, también en _C. Elegans_ y de función parecida. Desde entonces se han descubierto más funciones de estas moléculas y más mutaciones involucradas en patologías. También se han desarrollado técnicas que los emplean diagnóstico e investigación.
 
-Los microRNA son moléculas de RNA no codificantes y de longitud reducida (de 18 a 26 nucleótidos) que hibridan con uno o varios mRNA para regular la expresión de los genes que los transcriben, produciendo cambios significativos en varios procesos fisiológicos y patológicos. La base de datos miRTarBase, que recopila información verificada manualmente sobre la interacción entre estos microRNA y los genes a los que regulan (MTI), ha crecido considerablemente en los últimos años a raíz del reciente interés de los MTI para el desarrollo de medicamentos.
+Estos microRNA son moléculas de RNA no codificantes y de longitud reducida (de 18 a 26 nucleótidos) que hibridan con uno o varios mRNA para regular la expresión de los genes que los transcriben, produciendo cambios significativos en varios procesos fisiológicos y patológicos. A medida que se han ido descubriendo más de éstos, han surgido diversas bases de datos que recopilan deferentes aspectos de estas moléculas.
 
-Sin embargo, miRTarBase no posee funciones ni interfaces que permitan su uso adecuado con herramientas bioinformáticas. { #TODO: hablar de los principios FAIR y ligarlo con MongoDB y la API REST? }
+Una de esas bases de datos es miRTarBase, que recopila información verificada manualmente sobre la interacción entre estos microRNA y los genes a los que regulan (MTI). A midida que esta base de datos ha ido creciendo, ha obtenido datos suficientes como para poder describir o predecir las funciones biológicas que regulan.
 
-{ #TODO: hablar de MongoDB, repetir lo que está en materiales > bases de datos? }
+Sin embargo, miRTarBase no posee funciones ni interfaces que permitan su uso adecuado con herramientas bioinformáticas. Además, al descargarla su formato tampoco permite su uso directo por dichas herramientas. Para poder hacerlo, habría que importar los datos en un sistema que permitiera su explotación computerizada.
 
-Los principios de la arquitectura REST son un diseño de intercambio de datos que permite a cualquier aplicación desarrollada con cualquier lenguaje que admita conexiones a internet recibir información de una manera estándar sin necesidad de implementaciones complejas o específicas.
+{ #TODO: no sé como ligarlo bien con MongoDB y lo de las APIS, o si explicarlo más para la parte de objetivos y métodos }
 
-Por esas características en este trabajo se ha usado MongoDB para almacenar los datos obtenidos de miRTarBase y una API REST para ponerlos a disposición de los investigadores mediante el uso de herramientas informáticas.
-
-{ #TODO: tengo que alargarla más o darle otro enfoque? }
+MongoDB es sistema para bases de datos que está diseñado para poder ser explotado de manera efectiva.
 
 ## Resumen y objetivos
 
@@ -70,7 +68,7 @@ Después, se desarrollará un servicio REST que permita consultar la base de dat
 
 ## Materiales
 
-### Fuentes de datos
+### Fuentes de datos sobre microRNAS
 
 Existen muchas bases de datos que recogen información relacionada com microRNAs. Algunas de ellas son:
 
@@ -94,13 +92,37 @@ Existen muchas bases de datos que recogen información relacionada com microRNAs
   
   - Tampoco posee una API, se puede descargar como una tabla `.xlsx`.
 
+{ #PROFE: añadir referencias, tabla comparativa, frecuencia de actualización, num de especies y mirnas }
+
 #### miRTarBase
 
 Puesto que los objetivos de este trabajo requieren partir de evidencias experimentales, y se pretende aplicar al máximo de entradas posibles, se ha escogido miRTarBase para obtener información de los MTIs. Esta base de datos surgió en 2011, y durante la última década ha ido recogiendo manualmente imformación sobre MTIs creciendo su tamaño exponencialmente.
 
-Desde su inicio y hasta ahora, la única manera de consultarla ha sido mediante su interfaz web, que han mejorado con cada actualización de la base de datos. Devuelve una tabla con el identificador, las moléculas, sus especies y los experimentos desglosados según la evidencia.
+Desde su inicio y hasta ahora, la única manera de consultarla ha sido mediante su interfaz web, que han mejorado con cada actualización de la base de datos. Devuelve una tabla con varios campos, que incluyen:
+
+- Un identificador asignado para cada entrada, que corresponde a un MTI
+
+- Los microRNA implicados, junto con la especie del mismo
+
+- Los genes a los que regulan, junto con la especie del mismo
+
+- Los experimentos que demuestran cada MTI, desglosados según la evidencia
+  
+  - Asignan evidencia "fuerte" al _reporter assay_, al _western blot_ y al _qPCR_, y muestran uno en cada columna.
+  - También muestran por separado el _microarray_, la _NGS_, el _pSILAC_ y el _CLIP-Seq_.
+  - El resto de experimentos apareden como _Other_.
+
+- El conteo de los experimentos y de los artículos publicados donde aparecen.
 
 Por desgracia, no han implementado una API que permita el análisis y la consulta computerizadas, y la única manera de descargarlo es en formato `.xlsx`, que es propietario y no orientado a la programación. Para explotar la información que contiene habrá que exportarlo a la base de datos que hemos escogido.
+
+### Fuentes de datos sobre funciones de genes
+
+Para los objetivos de este trabajo también se necesitan fuentes de información sobre funciones celulares de los genes. Para ello se usará g:Profiler, un servidor web para análisis de enriquecimiento funcional. Su uso para este trabajo será recuperar una lista de funciones en términos `GO` en función de una lista de genes que se obtendrán de miRTarBase.
+
+Gene Ontology es el recurso más completo y ampliamente utilizado que provee información sobre las funciones de los genes y sobre sus productos. Además de estar diseñado para proveer la información de manera computerizable, usa una ontología formal y bien definida para su estructura. Se basa en términos llamados `GO`, que tienen un significado concreto y pueden estar definidos usando otros `GO`.
+
+{ #TODO: no tengo claro que hacer o como hablar del Human Phenotype Ontology, ya me lo explicará con lo de la validación funcional con GO / HPO }
 
 ### Bases de datos
 
@@ -130,31 +152,45 @@ La base de datos escogida para este proyecto es MongoDB, una base de datos con m
 
 - { #TODO: añadir alguna propiedad más si es relevante }
 
-#### Gene Ontology y Human Phenotype Ontology
-
-{ #TODO: leer artículos y escribir sobre GO y HPO }
-
 ### Tecnologías Informáticas
 
-> La parte de tecnologías informáticas hay que desarrollarlo un poco más.
-> 
-> Deberíamos tener otra sección de librerías en las que expliques lo que es una API y cuáles son las ventajas de una API REST. Y explicar más en detalle en que consiste una API REST y cuáles son los métodos que permite.
-> 
-> Para que te hagas una idea, esta parte debería de tener entre 4 y 5 páginas. Apoyate en artículos, en páginas web. 
+#### Entorno
 
-Para desarrollar este trabajo se ha usado Python 3.10 como lenguaje, Visual Studio Code como editor y Ubuntu 22.04 como sistema operativo. Además de las librerías nativas de Python, se han usado las siguientes librerías externas junto con sus dependencias:
+Este trabajo se ha desarrollado con Ubuntu 22.04 LTS, una distribución de Linux, como sistema operativo. Como editor se ha empleado Visual Studio Code Community Edition, que permite visualizar código de una manera más clara y provee de funciones que ayudan a escribirlo, formatearlo y corregirlo.
 
-- `requests` librería que simplifica el envío de peticiones HTTP.
+#### Lenguage
 
-- `pandas` herramienta rápida y flexible de análisis y manipulación de datos.
+Como lenguage de programación se ha usado Python 3.10, un lenguage interpretado de alto nivel. A diferencia de los lenguages compilados, permite programar sin necesidad de tener que interaccionar con el hardware y a diferencia de los lenguages de bajo nivel, permite una sintaxis más legible y sencilla, lo que lo ha convertido en el lenguage más empleado en el campo de la biología.
 
-- `pymongo` herramienta oficial recomendada por MongoDB para trabajar desde Python.
+Para desarrollar este trabajo, además de las librerías nativas de Python, se han usado otras librerías externas junto con sus dependencias.
 
-- `Flask` infraestructura ligera para desarrollo de aplicaciones web en Python.
-  
-  - Este paquete maneja la API REST. { #TODO: ya lo explico en la intro, está bien? }
+La librería `requests` simplifica, con respecto a la librería nativa, el envío de peticiones HTTP y el procesamiento de sus respuestas. En este trabajo se ha usado para la descarga automatizada de ficheros y para pruebas de conexión.
 
-- `gprofiler-official` interfaz oficial de g:Profiler para consultar desde Python.
+La librería `pandas` es una herramienta rápida y flexible de análisis y manipulación de datos. Permite importar, modificar y exportar bases de datos de y a diferentes formatos. Se ha usado para trabajar con los ficheros descargados de miRTarBase.
+
+La librería `pymongo` es la herramienta oficial recomendada por MongoDB para trabajar desde Python. Permite administrar instalaciones locales o remotas de MongoDB y guardar o recuperar datos de ellas. En este trabajo se ha usado tanto para guardar y servir los datos de miRTarBase.
+
+`Flask` infraestructura ligera para desarrollo de aplicaciones web en Python. Aunque para la implementación final se usarán otros recursos, en este trabajo se ha usado para montar un prototipo para la API REST final.
+
+Finalmente la librería `gprofiler-official` es interfaz oficial de g:Profiler para consultar desde Python. En este trabajo se usa para consultar g:Profiler sin tener que escribir una gran cantidad de código con `requests`.
+
+#### API REST
+
+Para poder enviar a través de internet las funciones de los microRNAs que se soliciten, se ha usado una API REST. Las APIs son interfaces para los programas que permiten comunicarse con otros programas y automatizar procesos que requieran varios de ellos, tanto en local como a través de internet.
+
+Con respecto a REST, es una arquitectura cuyo diseño de intercambio de datos permite a cualquier aplicación desarrollada con cualquier lenguaje información de una manera estándar sin necesidad de implementaciones complejas o específicas. Permite una variedad de ventajas con respecto a la principal alternativa SOAP.
+
+|             | REST        | SOAP        |
+| ----------- | ----------- | ----------- |
+| acceso      | recursos    | operaciones |
+| API pública | única       | múltiple    |
+| interfaz    | consistente | variable    |
+| formatos    | varios      | sólo `XML`  |
+| caché       | permitida   | absente     |
+
+Tabla: comparación entre REST y SOAP.
+
+Así, las ventajas de tener una API REST comprenden desde el rendimiento hasta la consistencia en el uso. Además, suele ser implementada con HTTP, que permite conexiones a internet, y JSON, que también puede utilizarse con la API de MongoDB.
 
 ## Métodos
 
@@ -224,11 +260,9 @@ Puesto que las columans de los artículos repiten cada MTI al que hacen referenc
 
 El campo `Experiments` tiene varios problemas. Los nombres de las técnicas son inconsistentes, usando o no abreviaciones y sinónimos. Además, hay muchos errores de otrografía arbitrarios y diferentes en diferentes entradas de los nombres de cada técnica. Finalmente, los separadores cambian en algunas entradas. En la mayoría son dos barras `//` o punto y coma `;`.
 
-El campo `Target Gene` recoge genes cuyos nombres suelen estar compuestos por pocas letras y números. Puesto que la base de datos se ha guardado en `.xlsx`, y que Excel puede reemplazar conjuntos de letras y números por fechas, cambiando no sólo la representación sino el valor (se reemplaza por una estampa de tiempo), estas entradas pierden la información irreversiblemente.
+El campo `Target Gene` recoge genes cuyos nombres suelen estar compuestos por pocas letras y números. Puesto que la base de datos se ha guardado en `.xlsx`, y que Excel puede reemplazar conjuntos de letras y números por fechas, cambiando no sólo la representación sino el valor (se reemplaza por una estampa de tiempo), estas entradas pierden la información irreversiblemente. Además, hay unps pocos `Target Gene` que tienen diferentes `Target Gene (Entrez ID)` asociados.
 
-Por último, el campo `miRTarBase ID` debería ser un identificador único para cada MTI, pero en un análisis de `hsa_MTI.xlsx` he identificado más de 16 000 conflictos (distintos pares de MTI a los que les han asignado el mismo ID). Me pondré en contacto con el grupo que confecciona la base de datos para informarles una vez haya acabado este trabajo.
-
-{ #TODO: quedan algunos conflictos menores... }
+Finalmente, el campo `miRTarBase ID` debería ser un identificador único para cada MTI, pero en un análisis de `hsa_MTI.xlsx` he identificado más de 16 000 conflictos (distintos pares de MTI a los que les han asignado el mismo ID). Me pondré en contacto con el grupo que confecciona la base de datos para informarles una vez haya acabado este trabajo.
 
 #### Estructura nueva para MongoDB
 
@@ -280,9 +314,9 @@ Para poder lidiar con los otros problemas descritos anteriormente sobre este cam
 
 - Para la separación de los elementos en la base de datos original, lo he implementado de manera que se intentan usar los dos separadores principales, `//` y `;`. El resto de entradas se dejan sin resolver en este paso.
 
-- Para estandarizar los elementos de manera que se puedan usar programáticamente, además de para resolver algunos casos aislados de otros separadores como `/` o `,`, he desarrollado un diccionario de Python para corregirlos que he rellenado manualmente.
+- Para estandarizar los elementos de manera que se puedan usar programáticamente, además de para resolver algunos casos aislados de otros separadores como `/` o `,`, he desarrollado un diccionario de Python que relaciona los elementos con sus correcciones y lo he rellenado manualmente.
   
-  - El script pregunta cómo corregir cada entrada al detectarla si no está ya presente en dicho diccionario. Esto será útil para las futuras versiones de las bases de datos que se tengan que importar.
+  - El script pregunta cómo corregir cada entrada al detectarla si no está ya presente en dicho diccionario, y actualiza el diccionario al recibir esas correcciones. Esto será útil para las futuras versiones de las bases de datos que se tengan que importar.
   
   - Debido a la similitud de algunos nombres de técnicas y a la diversidad y cantidad de errores de otrografía, no he podido desarrollar ningún algoritmo para ayudar a corregir las entradas automáticamente.
 
@@ -294,11 +328,11 @@ En `/search` se recibe uno o varios argumentos (campos de la base de datos con v
 
 Ejemplos de consulta:
 
-- `http://127.0.0.1:5000/search?gene_symbol=RAN` devuelve los MTI en los que participa el gen `RAN`, y consecuentemente los microRNA que lo regulan.
-
 - `http://127.0.0.1:5000/search?mirna_symbol=hsa-miR-222-3p` devuelve los MTI que se conocen para el microRNA `hsa-miR-222-3p`, y consecuentemente los genes que regula.
 
-- `http://127.0.0.1:5000/search?pubmed_ids=19438724` devuelve los MTI del los que el artículo `19438724` proporciona evidencia.
+- `http://127.0.0.1:5000/search?gene_symbol=RAN&experiments=Western%20blot` devuelve los MTI en los que participa el gen `RAN`, y consecuentemente los microRNA que lo regulan. Además, limita los resultados a los MTI cuyas evidancias experimentales incluyan `Western blot`.
+
+- `http://127.0.0.1:5000/search?pubmed_ids=19438724` devuelve los MTI para los que el artículo `19438724` proporciona evidencia.
 
 Ejemplo de respuesta:
 
@@ -340,11 +374,11 @@ Ejemplo de respuesta:
 
 Bloque: ejemplo de respuesta para los MTI descritos en el artículo `19438724`.
 
-En `/detail` se recibe el identificador de un microRNA bajo su clave en la base de datos `mirna_symbol` y se devuelve la caracterización funcional de éste, basándose en los genes de sus MTI para deducirla. El concepto se explica en detalle en el siguiente apartado.
+En `/detail` se recibe el identificador de un microRNA bajo su clave en la base de datos `mirna_symbol`. Además, también se acepta como patámetro opcional el `support_type` para limitar los resultados. Esta ruta devuelve la caracterización funcional del microRNA, basándose en los genes de sus MTI con evidencia suficiente para deducirla. El concepto se explica en detalle en el siguiente apartado.
+
+{ #TODO: añadir `support type`, valores repetidos o comas }
 
 Un ejemplo de consulta sería `http://127.0.0.1:5000/detail?mirna_symbol=hsa-miR-664b-5p`, que devolvería la caracterización funcional del microRNA `hsa-miR-664b-5p`.
-
-{ #TODO: discutir sobre la respuesta }
 
 ```json
 {
@@ -372,29 +406,55 @@ Bloque: ejemplo de respuesta para la caracterización funcional de `hsa-miR-664b
 
 ### Integración con gProfiler2
 
-{ #TODO: alargar esto? }
+El objetivo principal de este trabajo es poder ofrecer una predicción de caracterización funcional de un microRNA en base a a los genes que regula, que se ofrecerá a través de una API REST. En la implementación actual corresponde a la ruta `/detail` y recibe el nombre del microRNA como argumento `mirna_symbol`.
 
-Para la caracterización funcional el propio servicio REST hace una consulta en tiempo real a g:Profiler con los identificadores de los genes a través del paquete `gprofiler-official`.
+Al recibir la petición se recuperan las entradas correspondientes a ese `mirna_symbol` en la base de datos importada, de manera equivalente a lo que sucedería en `/search`. Pero en vez de devolver los resultados, se agrupan los genes de esas entradas en función de la especie del gen.
+
+Después, para cada grupo de genes se hace una consulta en tiempo real a g:Profiler para recibir la predicción funcional de éstos, que correspondería a la predicción de la función del microRNA. Esta consulta se hace a través del paquete `gprofiler-official`, la librería de Python que g:Profiler provee.
+
+Finalmente se devuelve una lista simplificada de las predicciones funcionales para cada especie de esos genes, tal y como se aprecia en el apartado anterior.
 
 ### Carga de la bibliopedia
 
-{ #TODO: hablar de la bibliopedia aunque lo haga después de entregar? lo digo para alargar el trabajo si se queda corto... }
+{ #TODO: hablar de cómo haremos lo de la bibliopedia, aunque lo haga después de entregar la memoria }
 
 # Resultados
 
 ## Descriptivo de la carga de mirtarbase
 
-{ #TODO: consultar base de datos después de corregir el código }
+En total se han importado 455087 entradas, la mayoría siendo MTIs de microRNA humano. En total hay 23 especies, y las que tienen más entradas son:
 
-{ #TODO: esto tiene que ver con lo de la página web y el diagrama de Sankey, no? }
+| mirna_specie           | Count  |
+| ---------------------- | ------:|
+| Homo sapiens           | 394973 |
+| Mus musculus           | 55012  |
+| Caenorhabditis elegans | 3236   |
+| Rattus norvegicus      | 796    |
+| Bos taurus             | 298    |
 
-## Caso de validación con GO
+A pesar de la gran cantidad de MTIs registrados en la base de datos, los microRNAs que los componen son muy limitados, siendo 4993 en total. De entre éstos, los que tienen más entradas son:
 
-{ #TODO: hablar con profe }
+| mirna_symbol   | Count |
+| -------------- | -----:|
+| hsa-miR-335-5p | 2705  |
+| hsa-miR-26b-5p | 1935  |
+| hsa-miR-16-5p  | 1606  |
+| hsa-miR-124-3p | 1527  |
 
-## Caso de validación con HPO
+Finalmente los genes son algo más variados, llegando a 24429 distintos. Los que tienen más entradas son:
 
-{ #TODO: hablar con profe }
+| gene_symbol | Count |
+| ----------- | -----:|
+| ZNF460      | 359   |
+| CDKN1A      | 335   |
+| NUFIP2      | 331   |
+| AGO2        | 308   |
+
+{ #TODO: esto tiene que ver con lo de la página web y el diagrama de Sankey, no? tendrá que explicármelo }
+
+## Casos de validación funcional
+
+{ #TODO: necesito saber que tengo que hacer para esto }
 
 # Discusión
 
@@ -402,9 +462,11 @@ Para la caracterización funcional el propio servicio REST hace una consulta en 
 
 Tal y como se puede apreciar al consultar la base de datos miRTarBase, contiene varios errores y no está optimizada para el uso computerizado. Es por ello que ha sido necesario rediseñar, corregir y reimplementar dicha base de datos para poder hacer consultas complejas o automatizadas.
 
-# Conclusiones (1 pág.)
+Y es que a pesar de que hoy en día las tecnologías informáticas y sus correspondientes bases de datos han llegado a un punto de su desarrollo que están integradas en una infinidad de servicios que usamos a diario, muchas de las bases de datos bioinformáticas están estancadas. Algunos de los motivos más probables son que no hay interés por parte de los investigadores de escribir sus artículos y publicar su información de manera que pueda ser aprovechada de manera automática, o bien porque los investigadores del campo de la biología no tienen conocimiento informático suficiente como para hacerlo.
 
-{ #TODO: hablar con profe }
+# Conclusiones
+
+{ #TODO: al final }
 
 # Referencias
 
@@ -421,10 +483,11 @@ https://github.com/jricardo-um/mirtarbase-importing
 | RNA           | ribonucleic acid              | ácido ribonucléico                       |
 | miRNA<br>μRNA | micro-RNA                     | micro RNA                                |
 | mRNA          | messenger RNA                 | RNA mensajero                            |
-| MTI           | miRNA-target interaction      | interacción del miRNA con su diana       |
+| MTI           | miRNA-target interaction      | interacción de miRNA con su diana        |
 | API           | application program interface | interfaz de programación de aplicaciones |
 | GUI           | graphical user interface      | interfaz gráfica de usuario              |
 | URL           | unique resource locator       | localizador de recurso único             |
+| SOAP          | simple object access protocol | protocolo de acceso a objeto simple      |
 | REST          | representation state transfer | transferencia de estado representado     |
 | SQL           | structured query language     | lenguaje de consulta estructurada        |
 | NoSQL         | not only SQL                  | no sólo SQL                              |
@@ -446,6 +509,12 @@ Requests documentation https://requests.readthedocs.io/en/stable/
 PyMongo documentation https://pymongo.readthedocs.io/en/stable/
 
 GProfiler on PyPI https://pypi.org/project/gprofiler-official/
+
+https://www.sciencedirect.com/science/article/pii/S0027510711000613
+
+Khan, M. W., & Abbasi, E. (2015). Differentiating Parameters for 
+Selecting Simple Object Access Protocol (SOAP) vs. Representational 
+State Transfer (REST) Based Architecture. *Journal of Advances in Computer Networks*, *3*(1), 63-6. https://www.researchgate.net/profile/Eram-Abbasi-3/publication/280736421_Differentiating_Parameters_for_Selecting_Simple_Object_Access_Protocol_SOAP_vs_Representational_State_Transfer_REST_Based_Architecture/links/597e0be2a6fdcc1a9accb0fe/Differentiating-Parameters-for-Selecting-Simple-Object-Access-Protocol-SOAP-vs-Representational-State-Transfer-REST-Based-Architecture.pdf
 
 ---
 
