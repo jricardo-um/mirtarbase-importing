@@ -40,6 +40,8 @@ Trabajo de fin de máster de Jorge Ricardo Alonso Fernández
 
 ## Introducción
 
+### MicroRNAs
+
 En 1993 se descubrió por primera vez un microRNA en _C. Elegans_, llamado _lin-4_, junto con algunas mutaciones que provocaban pérdidas de función. Y no fue hasta el 2000 que se descubrió otro más, también en _C. Elegans_ y de función parecida. Desde entonces se han descubierto más funciones de estas moléculas y más mutaciones involucradas en patologías. También se han desarrollado técnicas que los emplean diagnóstico e investigación.
 
 Estos microRNA son moléculas de RNA no codificantes y de longitud reducida (de 18 a 26 nucleótidos) que hibridan con uno o varios mRNA para regular la expresión de los genes que los transcriben, produciendo cambios significativos en varios procesos fisiológicos y patológicos. A medida que se han ido descubriendo más de éstos, han surgido diversas bases de datos que recopilan deferentes aspectos de estas moléculas.
@@ -48,9 +50,13 @@ Una de esas bases de datos es miRTarBase, que recopila información verificada m
 
 Sin embargo, miRTarBase no posee funciones ni interfaces que permitan su uso adecuado con herramientas bioinformáticas. Además, al descargarla su formato tampoco permite su uso directo por dichas herramientas. Para poder hacerlo, habría que importar los datos en un sistema que permitiera su explotación computerizada.
 
-{ #TODO: no sé como ligarlo bien con MongoDB y lo de las APIS, o si explicarlo más para la parte de objetivos y métodos }
+### Bases de datos
 
-MongoDB es sistema para bases de datos que está diseñado para poder ser explotado de manera efectiva.
+A medida que el estudio de la biología en las últimas décadas ha ido generando más información también han crecido en número, tamaño y tipos las bases de datos que la recogen, lo que a su vez ha generado más retos.
+
+El primer reto es el de gestionar eficientemente el guardado de toda esa información. A mediada que las tecnologías informáticas han avanzado, han salido muchas soluciones optimizadas para diferentes usos. La que vamos a usar en este trabajo, MongoDB, es una base de datos que permite guardar la información de forma descentralizada y copiarla en diferentes nodos en función de las necesidades de uso, todo de forma automática.
+
+El segundo reto es el de poder acceder de manera sistemática al contenido de las bases de datos. Puesto que may muchas bases de datos que se manejan de maneras diferentes, y también hay muchos programas escritos en diferentes lenguajes para analizar esa información, es necesario tener un método de acceso común que puedan usar todos ellos. Las APIs abordan ese problema, permitiendo a los programas comunicarse entre sí mediante diferentes métodos. En este trabajo se emplea una API REST, que es una manera estándar hoy en día de intercambiar información a través de internet, y es compatible con casi todos los lenguages de programación.
 
 ## Resumen y objetivos
 
@@ -72,27 +78,25 @@ Después, se desarrollará un servicio REST que permita consultar la base de dat
 
 Existen muchas bases de datos que recogen información relacionada com microRNAs. Algunas de ellas son:
 
-- miRBase recoge secuencias de RNA y localizaciones cromosómicas de dichas moléculas. Además, recoge anotaciones y referencias a otras herramientas y bases de datos.
-  
-  - No posee una API para consumo computerizado. Las secuencias se pueden descargar en formato fasta, las localizaciones cromosómicas en un archivo `.gff3` y el resto de datos en un archivo con formato EMBL.
+- miRBase recoge secuencias de RNA y localizaciones cromosómicas de dichas moléculas. Además, recoge anotaciones y referencias a otras herramientas y bases de datos. No posee una API para consumo computerizado. Las secuencias se pueden descargar en formato fasta, las localizaciones cromosómicas en un archivo `.gff3` y el resto de datos en un archivo con formato EMBL.
 
-- TarDB recoge predicciones de MTI de plantas e información relacionada de sus funciones.
-  
-  - Tampoco posee una API, pero se pueden descargar los datos en `.cons`, una tabla con alineaciones.
+- TarDB recoge predicciones de MTI de plantas e información relacionada de sus funciones. Tampoco posee una API, pero se pueden descargar los datos en `.cons`, una tabla con alineaciones.
 
-- miRmap recoge predicciones computerizadas sobre los MTI.
-  
-  - Posee una API, interfaz web con muchas opciones, y pueden descargarse los datos en formato libre `.csv`.
+- miRmap recoge predicciones computerizadas sobre los MTI. Posee una API, interfaz web con muchas opciones, y pueden descargarse los datos en formato libre `.csv`.
 
-- miR2Disease recoge los MTI implicados en diversas enfermedades humanas.
-  
-  - No posee una API, se puede descargar una tabla en `.txt`.
+- miR2Disease recoge los MTI implicados en diversas enfermedades humanas. No posee una API, se puede descargar una tabla en `.txt`.
 
-- miRTarBase recoge evidencias experimentales de los MTI de muchas especies.
-  
-  - Tampoco posee una API, se puede descargar como una tabla `.xlsx`.
+- miRTarBase recoge evidencias experimentales de los MTI de muchas especies. Tampoco posee una API, se puede descargar como una tabla `.xlsx`.
 
-{ #PROFE: añadir referencias, tabla comparativa, frecuencia de actualización, num de especies y mirnas }
+| Base de datos | Entradas y tipo                           | Actualización                     | Especies                      | Descargas                                        | Interfaz  |
+| ------------- | ----------------------------------------- | --------------------------------- | ----------------------------- | ------------------------------------------------ | --------- |
+| miRBase       | 38589 microRNAs<br>con evid. experimental | Irregular,<br>últ. ver. en 2018   | Múltiples                     | `.?` con microRNAs<br>`.gff3` con localizaciones | Web       |
+| TarDB         | 62888 prediciones de MTIs                 | Irregular,<br>últ. ver. en 2021   | Sólo plantas,<br> 43 en total | `.txt` con alineaciones                          | Web y API |
+| miRmap        | {#TODO: download and check}               | Irregular,<br>últ. ver. en 2022   | 7 mamíferos<br>y 1 pez        | `.csv` con MTIs y secuencias                     | Web       |
+| miR2Disease   | 3273 MTIs,<br>con evid. experimental      | Desconocido                       | Sólo humanos                  | `.txt` con mutaciones<br>y alineaciones          | Web       |
+| miRTarBase    | > 2000000 MTIs,<br>con evid. experimental | Cada 2 años,<br>últ. ver. en 2021 | Múltiples,<br>23 en total     | `.xlsx` con MTIs                                 | Web       |
+
+Tabla: comparación de las características de las bases de datos.
 
 #### miRTarBase
 
@@ -112,17 +116,17 @@ Desde su inicio y hasta ahora, la única manera de consultarla ha sido mediante 
   - También muestran por separado el _microarray_, la _NGS_, el _pSILAC_ y el _CLIP-Seq_.
   - El resto de experimentos apareden como _Other_.
 
-- El conteo de los experimentos y de los artículos publicados donde aparecen.
+- El conteo de los experimentos y de los artículos publicados donde aparecen
 
 Por desgracia, no han implementado una API que permita el análisis y la consulta computerizadas, y la única manera de descargarlo es en formato `.xlsx`, que es propietario y no orientado a la programación. Para explotar la información que contiene habrá que exportarlo a la base de datos que hemos escogido.
 
 ### Fuentes de datos sobre funciones de genes
 
-Para los objetivos de este trabajo también se necesitan fuentes de información sobre funciones celulares de los genes. Para ello se usará g:Profiler, un servidor web para análisis de enriquecimiento funcional. Su uso para este trabajo será recuperar una lista de funciones en términos `GO` en función de una lista de genes que se obtendrán de miRTarBase.
+Para los objetivos de este trabajo también se necesitan fuentes de información sobre funciones celulares de los genes. Para ello se usará g:Profiler, un servidor web para análisis de enriquecimiento funcional. Su uso para este trabajo será recuperar una lista de funciones en términos `HP` y derivados de `GO` en función de una lista de genes que se obtendrán de miRTarBase.
 
-Gene Ontology es el recurso más completo y ampliamente utilizado que provee información sobre las funciones de los genes y sobre sus productos. Además de estar diseñado para proveer la información de manera computerizable, usa una ontología formal y bien definida para su estructura. Se basa en términos llamados `GO`, que tienen un significado concreto y pueden estar definidos usando otros `GO`.
+Human Phenotype Ontology es un estándar para la descripción de anormalidades fenotípicas encontradas en enfermedades humanas. Proveen, además del vocabulario controlado, herramientas informáticas para la integración de datos y la investicagión. { #TODO: describir relación con gProfiler }
 
-{ #TODO: no tengo claro que hacer o como hablar del Human Phenotype Ontology, ya me lo explicará con lo de la validación funcional con GO / HPO }
+Gene Ontology es el recurso más completo y ampliamente utilizado que provee información sobre las funciones de los genes y sobre sus productos. Además de estar diseñado para proveer la información de manera computerizable, usa una ontología formal y bien definida para su estructura. Se basa en términos llamados `GO`, que tienen un significado concreto y pueden estar definidos usando otros `GO`. { #TODO: hablar de derivados }
 
 ### Bases de datos
 
@@ -147,6 +151,8 @@ La base de datos escogida para este proyecto es MongoDB, una base de datos con m
 - Permite el *sharding*, que es un método efectivo para distribuir dato en múltiples máquinas.
   
   - Su funcionamiento se basa en dividir la base de datos en varios *shards*, que contienen una porción de la base de datos y pueden replicarse y distribuirse en función de las necesidades de uso de cada una a lo largo del tiempo.
+  
+  - Por ejemplo, si se dividen los datos de miRTarBase por especies, las especies más consultadas tendrán copias de su *shard*, por lo que las consultas podrán ser respondidas por esos varios ordenadores que las contengan.
   
   - Esto ayuda a acomodar grandes cantidades de datos o a trabajar con recursos de harware limitados. También permite soportar grandes cargas de consultas a través de internet.
 
@@ -376,7 +382,7 @@ Bloque: ejemplo de respuesta para los MTI descritos en el artículo `19438724`.
 
 En `/detail` se recibe el identificador de un microRNA bajo su clave en la base de datos `mirna_symbol`. Además, también se acepta como patámetro opcional el `support_type` para limitar los resultados. Esta ruta devuelve la caracterización funcional del microRNA, basándose en los genes de sus MTI con evidencia suficiente para deducirla. El concepto se explica en detalle en el siguiente apartado.
 
-{ #TODO: añadir `support type`, valores repetidos o comas }
+{ #TODO: añadir `support type`, valores repetidos o comas, `HP` }
 
 Un ejemplo de consulta sería `http://127.0.0.1:5000/detail?mirna_symbol=hsa-miR-664b-5p`, que devolvería la caracterización funcional del microRNA `hsa-miR-664b-5p`.
 
@@ -404,6 +410,8 @@ Un ejemplo de consulta sería `http://127.0.0.1:5000/detail?mirna_symbol=hsa-miR
 
 Bloque: ejemplo de respuesta para la caracterización funcional de `hsa-miR-664b-5p`.
 
+"" grafico de barras por término/genes enfermedad cardiovascular para HPO buscar mirna ""
+
 ### Integración con gProfiler2
 
 El objetivo principal de este trabajo es poder ofrecer una predicción de caracterización funcional de un microRNA en base a a los genes que regula, que se ofrecerá a través de una API REST. En la implementación actual corresponde a la ruta `/detail` y recibe el nombre del microRNA como argumento `mirna_symbol`.
@@ -414,9 +422,15 @@ Después, para cada grupo de genes se hace una consulta en tiempo real a g:Profi
 
 Finalmente se devuelve una lista simplificada de las predicciones funcionales para cada especie de esos genes, tal y como se aprecia en el apartado anterior.
 
+## Trabajo futuro
+
 ### Carga de la bibliopedia
 
 { #TODO: hablar de cómo haremos lo de la bibliopedia, aunque lo haga después de entregar la memoria }
+
+### Mejora de la API
+
+{ #TODO: más métodos de búsqueda, generador de búsqueda, interfaz web }
 
 # Resultados
 
@@ -454,7 +468,7 @@ Finalmente los genes son algo más variados, llegando a 24429 distintos. Los que
 
 ## Casos de validación funcional
 
-{ #TODO: necesito saber que tengo que hacer para esto }
+{ #TODO: necesito saber que tengo que hacer para esto, mirar GO# y HP }
 
 # Discusión
 
@@ -494,38 +508,67 @@ https://github.com/jricardo-um/mirtarbase-importing
 
 ## Bibliografía
 
+- intro
+  
+  - micrornas
+    
+    - Maria I. Almeida, Rui M. Reis, George A. Calin, MicroRNA history: Discovery, recent applications, and next frontiers, Mutation Research/Fundamental and Molecular Mechanisms of Mutagenesis, Volume 717, Issues 1–2, 2011, Pages 1-8, ISSN 0027-5107, https://doi.org/10.1016/j.mrfmmm.2011.03.009
+    
+    - Huang HY, Lin YC, Cui S, *et al*. miRTarBase update 2022: an informative resource for experimentally validated miRNA-target interactions. Nucleic Acids Res. 2022 Jan 7;50(D1):D222-D230. doi: https://doi.org/10.1093/nar/gkab1079
+  
+  - bases de datos
+    
+    - Stephan Philippi, Light-weight integration of molecular biological databases, *Bioinformatics*, Volume 20, Issue 1, January 2004, Pages 51–57, https://doi.org/10.1093/bioinformatics/btg372
+    - Dan M. Bolser *et al*. MetaBase - the wiki-database of biological databases, *Nucleic Acids Research*, Volume 40, Issue D1, 1 January 2012, Pages D1250–D1254, https://doi.org/10.1093/nar/gkr1099
+
+- materiales
+  
+  - fd micrornas
+    
+    - Kozomara A., Birgaoanu M., Griffiths-Jones S. miRBase: from microRNA sequences to function. Nucleic Acids Res 2019 47:D155-D162. https://doi.org/10.1093/nar/gky1141
+    - Liu J, *et al*. TarDB: an online database for plant miRNA targets and miRNA-triggered phased siRNAs. BMC Genomics. 2021; 22(1):348. https://doi.org/10.1186/s12864-021-07680-5
+    - Charles E. Vejnar, Evgeny M. Zdobnov. miRmap: Comprehensive prediction of microRNA target repression strength Nucleic Acids Research 2012 Dec 1;40(22):11673-83. https://doi.org/10.1093/nar/gks901
+    - Jiang Q., Wang Y., Hao Y., *et al.* (2009) miR2Disease: a manually curated database for microRNA deregulation in human disease. *Nucleic Acids Res*. https://doi.org/10.1093/nar/gkn714
+  
+  - fd funciones
+    
+    - Sebastian Köhler *et al*. The Human Phenotype Ontology in 2021, *Nucleic Acids Research*, Volume 49, Issue D1, 8 January 2021, Pages D1207–D1217, https://doi.org/10.1093/nar/gkaa1043
+    - The Gene Ontology Consortium. The Gene Ontology Resource: 20 years and still GOing strong, *Nucleic Acids Research*, Volume 47, Issue D1, 08 January 2019, Pages D330–D338, https://doi.org/10.1093/nar/gky1055
+  
+  - bd sql nosql
+    
+    - J. E. Pagán, J. S. Cuadrado, J. G. Molina. A repository for scalable model management. *Softw Syst Model* **14**, 219–239 (2015). https://doi.org/10.1007/s10270-013-0326-8
+    
+    - M. W. Khan, E. Abbasi (2015). Differentiating Parameters for Selecting Simple Object Access Protocol (SOAP) vs. Representational State Transfer (REST) Based Architecture. *Journal of Advances in Computer Networks*, *3*(1), 63-6. http://dx.doi.org/10.7763/JACN.2015.V3.143
+  
+  - tecnologias
+    
+    - Requests documentation https://requests.readthedocs.io/en/stable/
+    
+    - W. McKinney, *et al*. (2010). Data structures for statistical computing in python. In *Proceedings of the 9th Python in Science Conference* (Vol. 445, pp. 51–56). https://doi.org/10.5281/zenodo.3509134
+    
+    - PyMongo documentation https://pymongo.readthedocs.io/en/stable/
+    
+    - GProfiler on Python Package Index https://pypi.org/project/gprofiler-official/
+    
+    - M. Grinberg (2018). *Flask web development: developing web applications with python*. O'Reilly Media, Inc. https://dl.acm.org/doi/book/10.5555/2621997
+    
+    - Y. Punia, R. R. Aggarwal (2014). below: Implementing Information System Using MongoDB and Redis. https://www.warse.org/IJATCSE/static/pdf/file/icace2014sp05.pdf
+    
+    - MongoDB documentation https://www.mongodb.com/docs/manual/sharding/
+    
+    - 
+  
+  - api rest
+    
+    - Andrew Yates and others, The Ensembl REST API: Ensembl Data for Any Language, *Bioinformatics*, Volume 31, Issue 1, January 2015, Pages 143–145, https://doi.org/10.1093/bioinformatics/btu613
+
 { #TODO: revisar y añadir }
-
-surgimiento de bases de datos nosql https://www.researchgate.net/profile/Jesus-Sanchez-Cuadrado/publication/257491810_A_repository_for_scalable_model_management/links/568baf0508ae051f9afc5857/A-repository-for-scalable-model-management.pdf
-
-McKinney, W., & others. (2010). Data structures for statistical computing in python. In *Proceedings of the 9th Python in Science Conference* (Vol. 445, pp. 51–56). https://doi.org/10.5281/zenodo.3509134
-
-https://www.mongodb.com/docs/manual/sharding/
-
-Grinberg, M. (2018). *Flask web development: developing web applications with python*. O'Reilly Media, Inc. https://dl.acm.org/doi/book/10.5555/2621997
-
-Requests documentation https://requests.readthedocs.io/en/stable/
-
-PyMongo documentation https://pymongo.readthedocs.io/en/stable/
-
-GProfiler on PyPI https://pypi.org/project/gprofiler-official/
-
-https://www.sciencedirect.com/science/article/pii/S0027510711000613
-
-Khan, M. W., & Abbasi, E. (2015). Differentiating Parameters for 
-Selecting Simple Object Access Protocol (SOAP) vs. Representational 
-State Transfer (REST) Based Architecture. *Journal of Advances in Computer Networks*, *3*(1), 63-6. https://www.researchgate.net/profile/Eram-Abbasi-3/publication/280736421_Differentiating_Parameters_for_Selecting_Simple_Object_Access_Protocol_SOAP_vs_Representational_State_Transfer_REST_Based_Architecture/links/597e0be2a6fdcc1a9accb0fe/Differentiating-Parameters-for-Selecting-Simple-Object-Access-Protocol-SOAP-vs-Representational-State-Transfer-REST-Based-Architecture.pdf
 
 ---
 
 **Links para añadir a la bibliografía:**
 
-- MIRTARBASE: [NLM](https://pubmed.ncbi.nlm.nih.gov/34850920/). [NAR](https://academic.oup.com/nar/article/50/D1/D222/6446528?login=false).
-- MongoDB: [Link](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=72d51350e7082d6aac9079ed4d44adade2d3012a).
-- API REST: [Este paper](https://academic.oup.com/bioinformatics/article/31/1/143/2366240?login=false) te va a ayudar a expresar las bondades de tener una api rest. La intrdoccuón está bastante bien. Y tienes referencia sobre REST.
-- HPO: [Link](https://academic.oup.com/nar/article/49/D1/D1207/6017351?login=false).
-- Gene Ontology: [Link](https://academic.oup.com/nar/article/47/D1/D330/5160994?login=false).
-- G-Profiler: [Article](https://academic.oup.com/nar/article/47/W1/W191/5486750?login=false). [Home](https://biit.cs.ut.ee/gprofiler/gost). [PyPI](https://pypi.org/project/gprofiler-official/).
 - PARA DISCUSION COMPARANDO CON OTRAS HERRAMIENTAS: [Link](https://academic.oup.com/bioinformatics/article/33/15/2421/3072087?login=false#118773415).
 - Otras herramientas: [Studio3T](https://studio3t.com/), [Plotly](https://plotly.com/python/)'s [sankey diagram](https://plotly.com/python/sankey-diagram/).
 

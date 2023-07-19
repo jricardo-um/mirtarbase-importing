@@ -25,18 +25,50 @@ skeys = (
  'description',
 )
 
+oids = {
+ 'Arabidopsis thaliana': None,
+ 'Bombyx mori': None,
+ 'Bos taurus': 'btaurus',
+ 'Caenorhabditis elegans': 'celegans',
+ 'Canis familiaris': 'clfamiliaris',
+ 'Capra hircus': 'chircus',
+ 'Cricetulus griseus': 'cgchok1gshd',
+ 'Danio rerio': 'drerio',
+ 'Drosophila melanogaster': 'dmelanogaster',
+ 'Epstein Barr virus': None,
+ 'Gallus gallus': 'ggallus',
+ 'Glycine max': None,
+ 'Homo sapiens': 'hsapiens',
+ 'Human cytomegalovirus': None,
+ 'Kaposi sarcoma-associated herpesvirus': None,
+ 'Macaca nemestrina': 'mnemestrina',
+ 'Mus musculus': 'mmusculus',
+ 'Oryza sativa': None,
+ 'Oryzias latipes': 'olatipes',
+ 'Ovis aries': 'oaries',  # also 'oarambouillet'
+ 'Rattus norvegicus': 'rnorvegicus',
+ 'Solanum lycopersicum': None,
+ 'Sus scrofa': 'sscrofa',  # also 12 different variants
+ 'Taeniopygia guttata': 'tguttata',
+ 'Xenopus laevis': None,
+ 'Xenopus tropicalis': 'xtropicalis',
+}
+
 
 def enrichment( specie_mtb: str, genes: list ):
-	print( 'Enriching', genes )
+	print( 'Enriching', genes )  # debug
 	gp = GProfiler( return_dataframe=False )
+	specie = oids[ specie_mtb ]
+	if not specie: return None
 	res = gp.profile(
-	 organism='hsapiens',  # TODO: https://biit.cs.ut.ee/gprofiler/page/organism-list
+	 organism=specie,  # TODO: https://biit.cs.ut.ee/gprofiler/page/organism-list
 	 query=genes,
 	)
 	for r in res:
 		try:
 			s = { key: r[ key ] for key in skeys }
 			if 'GO:' in r[ 'native' ]: yield s
+			if 'HP:' in r[ 'native' ]: yield s
 		except:
 			None
 
@@ -75,7 +107,6 @@ def mtbase():
 	  if key in dbfields }  # yapf: disable
 	res = list( mycol.find( rargs ) )
 	# TODO: check https://stackoverflow.com/a/12437945
-	print( res )
 	return jsonify( res )
 
 

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pandoc borrador.md \
+--reference-doc=style.odt \
+--output=borrador.odt

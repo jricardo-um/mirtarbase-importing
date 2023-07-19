@@ -18,4 +18,4 @@ echo -n ' `pip` is now: '
 which pip
 # install requirements if venv newly created
 if test -n "$req" ; then
-	pip install -r "$wd/0_freeze.txt" ; fi
+	pip install --user -r "$wd/0_freeze.txt" ; fi
